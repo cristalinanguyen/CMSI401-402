@@ -1,0 +1,25 @@
+
+USChedule Project SRS Feedback
+==============================
+
+Damn, you guys.... this is literally one of the best SRS submissions I've seen.
+
+Seriously, you have everything in here, and you nailed it all.  The only thing you
+need to do is split the first requirement for each CSC into a header and a single
+requirement statement.  For example:
+
+   5.3.1    Graphical User Interface (GUI)
+   5.3.1.1  The GUI shall display a login page
+
+The subsequent requirements need to be renumbered to add one to each statement, so
+5.3.1.1 becomes 5.3.1.2 and so on.  This should be a trivial exercise, but the
+result will be clearly defined sections for the requirements for each of the CSC's
+in the project.
+
+Other than that, AWESOME!!
+
+Make the changes listed above by the end of the semester for full credit on this assignment.
+
+Initial submission 8% out of 8%, plus 2% out of 2% for the Gantt chart.
+      10% out of 10% = 100% which is an A-plus
+
