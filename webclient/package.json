@@ -3,10 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "code": "^5.2.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "^3.1.2"
+=======
+    "jest": "^24.9.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.1.2",
+    "yarn": "^1.17.3"
+>>>>>>> 8799b9b85c509229d707629a9403f60f74d0fa3f
   },
   "scripts": {
     "start": "react-scripts start",
