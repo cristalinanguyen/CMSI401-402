@@ -93,3 +93,9 @@ ______________________
 I think branching is extremely useful and absolutely should be taken advantage of, especially if working with a large team of software engineers. Often times, there are many different features on a single project that need to be worked on simultaneously. For example, at my internship this past summer, I would check out a branch to work on one feature while others on my team had their own branches for the features they were working on. Once my code was approved by the team in a PR, I would merge my branch with master making it available for all to use. During the merge with master I would handle any merge conflicts that occured. If I wasn’t using my own branch, I could have pushed code to master that messed up what other engineers were working on, which is extremely detrimental to progress and can lead to errors as well as poor relationships with people on your team.
 
 ________________________
+## Problem 10:
+*Have you used a build tool in your development? Which tool have you used? What are its good points? What are it's bad points?*
+
+At my internship I used plenty of build tools because the company was already using them and it was consistent with what they were doing. I am not sure what the good and bad points of them were though. I just know that I worked with Webpack, Require.js, Gulp, Node, and NPM.
+
+__________________
