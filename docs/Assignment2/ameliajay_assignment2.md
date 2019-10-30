@@ -75,3 +75,9 @@ Some people say I'm arrogant, but really, I'm just about confidence: `Estimate`
 Everyone's involved when it comes to me: `Blueskying`
 
 ____________________________
+## Problem 7:
+*Explain what is meant by a better than best-case estimate.*
+
+A best-case estimate is the case of estimation in which the result is the best and provides the most revenue. We always want to over-deliver on our goals though, which is what the better than best-case estimate shoots for.
+
+_____________________
