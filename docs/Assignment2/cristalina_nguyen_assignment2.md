@@ -57,7 +57,7 @@ Everyone's involved when it comes to me: **Blueskying**
 
 ### Problem 7:
 Explain what is meant by a better than best-case estimate.
-- 
+- A better than best-case estimate is when a programmer (or anyone who is asked to do something) gives an unrealistic estimation of how much time its going to take to accomplish some task, either because they want to impress their superiors or because they are overestimating their abilities.
 
 ### Problem 8:
 In your opinion, when would be the best time to tell your customer that you will NOT be able to meet her delivery schedule? Why do you feel that is the best time? Do you think that would be a difficult conversation?
