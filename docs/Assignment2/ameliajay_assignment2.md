@@ -81,3 +81,9 @@ ____________________________
 A best-case estimate is the case of estimation in which the result is the best and provides the most revenue. We always want to over-deliver on our goals though, which is what the better than best-case estimate shoots for.
 
 _____________________
+## Problem 8:
+*In your opinion, when would be the best time to tell your customer that you will NOT be able to meet her delivery schedule? Why do you feel that is the best time? Do you think that would be a difficult conversation?*
+
+The best time to tell the customer that you will not be able to meet her delivery schedule is *as soon as possible*. Obviously, you want to make sure that you are confident in your timeline and team’s progress enough to know that you cannot make your deadline because you don’t want the customer to worry about a late delivery if that may not be the outcome. However, being transparent with your customer as soon as you possibly can is extremely important so that the customer can plan accordingly and so that you can maintain healthy and honest communication with them in the future.
+
+______________________
