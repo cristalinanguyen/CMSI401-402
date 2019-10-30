@@ -57,3 +57,21 @@ I think that the issue with assumptions is that they are not communicated about 
 As long as a user story estimate is accurate and has been well thought out, the story should be considered to be a good one, not a bad one. However, when a user story estimate is *extremely* large, that could be an indicator that it needs to be looked at again and maybe even broken up into multiple user stories.
 
 _______________________
+### Problem 6:
+*Fill in the blanks.*
+
+You can dress me up as a use case for a formal occasion: `User story`
+
+The more of me there are, the clearer things become: `User story`
+
+I help you capture EVERYTHING: `Blueskying, Observation`
+
+I help you get more from the customer: `Role playing, Observation`
+
+In court, I'd be admissible as firsthand evidence: `Observation`
+
+Some people say I'm arrogant, but really, I'm just about confidence: `Estimate`
+
+Everyone's involved when it comes to me: `Blueskying`
+
+____________________________
