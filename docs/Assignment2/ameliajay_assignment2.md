@@ -45,3 +45,15 @@ User stories should describe something the software needs to do for the user/cus
 User stories should not be extremely long, should not use technical terms that a user would not understand, and should not mention specific technologies.
 
 _____________________
+## Problem 5:
+*What is your opinion on the following statements, and why do you feel that way?*
+
+> All assumptions are bad, and no assumption is a good assumption.
+
+I think that the issue with assumptions is that they are not communicated about how they should be. There are plenty of assumptions that get made every day that are based on knowledge about users and software that are in fact good assumptions and align with how most users/developers feel about a product. However, no matter what the assumption is, it is important to clarify it with your team if it is affecting any choices you are making in the development process. If communication is happening the way it should, bad assumptions don’t slip through the cracks, and everyone can be on the same page.
+
+> A big user story estimate is a bad user story estimate.
+
+As long as a user story estimate is accurate and has been well thought out, the story should be considered to be a good one, not a bad one. However, when a user story estimate is *extremely* large, that could be an indicator that it needs to be looked at again and maybe even broken up into multiple user stories.
+
+_______________________
