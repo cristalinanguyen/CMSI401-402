@@ -38,13 +38,21 @@ A big user story estimate is a bad user story estimate.
 *6.	Fill in the blanks in the statements below, using the following things [you can use each thing for more than one statement]: Blueskying; Role playing; Observation; User story; Estimate; Planning poker.*
 
 You can dress me up as a use case for a formal occasion: User story
+
 The more of me there are, the clearer things become: User story
+
 I help you capture EVERYTHING: Blueskying, observation 
+
 I help you get more from the customer: Role playing, observation 
+
 In court, I'd be admissible as firsthand evidence: Observation
+
 Some people say I'm arrogant, but really, I'm just about confidence: Planning poker, estimate
+
 Everyone's involved when it comes to me: Blueskying 
-NOTE: when you have finished, check your answers with the result in your text on page 62. Do you agree with the book answers? If you disagree with any of them, justify your preferred answer.
+
+*Do you agree with the book answers? If you disagree with any of them, justify your preferred answer.*
+
 I agree with all of the answers but believe that the 6th can also be planning poker. This is when each member of the team will place down a card with the number of days they believe it will take to complete a deliverable. Individuals will need to be confident with their decisions If they believe this is truly how long it will take. It goes hand in hand with an estimate. 
 
 *7.	Explain what is meant by a better than best-case estimate.*
