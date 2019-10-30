@@ -87,3 +87,9 @@ _____________________
 The best time to tell the customer that you will not be able to meet her delivery schedule is *as soon as possible*. Obviously, you want to make sure that you are confident in your timeline and team’s progress enough to know that you cannot make your deadline because you don’t want the customer to worry about a late delivery if that may not be the outcome. However, being transparent with your customer as soon as you possibly can is extremely important so that the customer can plan accordingly and so that you can maintain healthy and honest communication with them in the future.
 
 ______________________
+## Problem 9:
+*Discuss why you think branching in your software configuration is bad or good. Describe a scenario to support your opinion.*
+
+I think branching is extremely useful and absolutely should be taken advantage of, especially if working with a large team of software engineers. Often times, there are many different features on a single project that need to be worked on simultaneously. For example, at my internship this past summer, I would check out a branch to work on one feature while others on my team had their own branches for the features they were working on. Once my code was approved by the team in a PR, I would merge my branch with master making it available for all to use. During the merge with master I would handle any merge conflicts that occured. If I wasn’t using my own branch, I could have pushed code to master that messed up what other engineers were working on, which is extremely detrimental to progress and can lead to errors as well as poor relationships with people on your team.
+
+________________________
