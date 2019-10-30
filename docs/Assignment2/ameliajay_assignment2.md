@@ -27,3 +27,21 @@ ______________________
 The main phases that occur in the Waterfall method are requirement analysis, design, implementation, testing, deployment, and maintenance. These phases are only done once, and each one must be completed before moving on to the next one. I do believe that all of these phases are necessary for the Waterfall method especially because each phase is only done once, so you need to be thorough to make sure everything goes right. I think that system maintenance could be a useful addition to the Agile method. Once a system/product is out there, it needs to be maintained at the same time that it is being iterated upon and improved. I’m not sure that maintenance should be added as a step in the cycle as much as it should be something that happens in parallel.
 
 _____________________
+## Problem 4:
+*What is a user story?*
+
+A user story is a story about how a user will interact with the software/product you are builiding.
+
+*What is blueskying?*
+
+Blueskying is when you brainstorm with others to get new ideas (any and all that come your way).
+
+*What are four things that user stories SHOULD do?*
+
+User stories should describe something the software needs to do for the user/customer, should be written by a user, should be written using language that the user understands, and should be relatively short and succinct in order to get the main points across.
+
+*What are three things that user stories SHOULD NOT do?*
+
+User stories should not be extremely long, should not use technical terms that a user would not understand, and should not mention specific technologies.
+
+_____________________
