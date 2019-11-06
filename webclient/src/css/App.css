@@ -3,8 +3,44 @@
   src: url('../fonts/AppleMyungjo.ttf') format("truetype");
 }
 
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-moz-keyframes fadein { /* Firefox */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-o-keyframes fadein { /* Opera */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
 .App {
   text-align: center;
+  background-color: #f4f8fc;
+  /* background-color: #f9f9f9; */
+  height: 100%;
 }
 
 .App-logo {
@@ -41,10 +77,16 @@
 .Header-button {
   color: white;
   margin-left: 20px;
+  background-color:  rgb(75, 122, 162);
+  border-color:  rgb(75, 122, 162);
+  font-family: "HelveticaNeue-Bold", Helvetica, Arial, serif;
+  font-size: 14px;
+  align-items: center;
+  cursor: pointer;
 }
 
 .Header {
-  background-color: rgb(90, 169, 214);
+  background-color: rgb(75, 122, 162);
   height: 65px;
   display: flex;
   align-items: center;
@@ -52,31 +94,43 @@
 }
 
 .Welcome-title {
-  color: rgb(91, 170, 215);
-  font-family: "AppleMyungjo", Arial, Helvetica, sans-serif;
-  font-size: 40px;
-  margin-top: 12%;
-  margin-bottom: 7%;
+  animation: fadein 5s;
+  -moz-animation: fadein 5s; /* Firefox */
+  -webkit-animation: fadein 5s; /* Safari and Chrome */
+  -o-animation: fadein 5s; /* Opera */
+  color: #3e5b73;
+  font-family: "HelveticaNeue-Thin", Arial, Helvetica, sans-serif;
+  font-size: 50px;
+  margin-top: 10%;
+  margin-bottom: 0px;
+  display: inline-block;  
 }
 
 .Welcome-card {
-  margin: 10px;
+  background-color: white;
+  margin-top: 7%;
+  margin-bottom: 7%;
+  margin-left: 2%;
+  padding: 2%;
   height: 225px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   box-sizing: border-box;
   width: 317px;
-  border-radius: 16px;
+  border-radius: 5px;
   border-style: solid;
-  border-width: 5px;
-  border-color: rgb(91, 170, 215);
-  font-family: "HelveticaNeue-Bold", Helvetica, Arial, serif;
+  border-width: 0px;
+  border-color: #3e5b73;
+  font-family: "HelveticaNeue-Medium", Helvetica, Arial, serif;
   font-size: 14px;
-  color: rgb(91, 170, 215);
+  text-decoration: none;
+  color: #3e5b73;
+  cursor: pointer;
 }
 
 .Welcome-img {
-  height: 100px;
-  margin-top: 30px;
-  /* margin-bottom: 5px; */
+  height: 90px;
+  margin-top: 10%;
+  margin-bottom: 3%;
 }
 
 .Welcome-body {
@@ -84,18 +138,21 @@
   justify-content: center;
   font-family: "HelveticaNeue-Bold", Helvetica, Arial, serif;
   color: rgb(91, 170, 215);
+  height: 100%;
 }
 
 .Back-to-login {
-  margin: 30px;
-  margin-top: 40px;
+  margin-bottom: 10%;
   padding: 20px;
   box-sizing: content-box;
-  border-radius: 16px;
-  background-color: rgb(91, 170, 215);
+  border-radius: 5px;
+  background-color: rgb(75, 122, 162);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* background-image: linear-gradient(-180deg,#68a0c3, #4b7aa2 98%); */
   font-family: "HelveticaNeue-Bold", Helvetica, Arial, serif;
   font-size: 14px;
   color: white;
+  cursor: pointer;
 }
 
 .Welcome {
