@@ -17,14 +17,14 @@ export default class Welcome extends Component {
                                 <img src={residents} className="Welcome-img" alt="residents"></img>
                                 <p>VIEW ALL RESIDENTS</p>
                         </Link>
-                        <button className="Welcome-card">
+                        <Link to="/current-schedule" className="Welcome-card">
                             <img src={view} className="Welcome-img" alt="view"></img>
                             <p>VIEW CURRENT SCHEDULE</p>
-                        </button>
-                        <button className="Welcome-card">
+                        </Link>
+                        <Link to="/create-new-schedule" className="Welcome-card">
                             <img src={create} className="Welcome-img" alt="create"></img>
                             <p>CREATE NEW SCHEDULE</p>
-                        </button>
+                        </Link>
                     </div>
                     <button className="Back-to-login">GO BACK TO LOGIN PAGE</button>
                 </div>

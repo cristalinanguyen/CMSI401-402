@@ -16,8 +16,16 @@ export default class Header extends Component {
                             <p>RESIDENTS</p>
                         </button>
                     </Link>
-                    <p className="Header-button">SCHEDULE</p>
-                    <p className="Header-button">CREATE SCHEDULE</p>
+                    <Link to="current-schedule">
+                        <button className="Header-button">
+                            <p>SCHEDULE</p>
+                        </button>
+                    </Link>
+                    <Link to="/create-new-schedule">
+                        <button className="Header-button">
+                            <p>CREATE SCHEDULE</p>
+                        </button>
+                    </Link>
                 </div>
             </div>
         );
