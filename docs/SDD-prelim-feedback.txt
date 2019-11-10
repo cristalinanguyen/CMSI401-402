@@ -1,0 +1,19 @@
+
+
+VERY nice work, as always.  You guys just keep getting better at this!  You
+have plenty of detail at the architectural level.  Just a couple of small
+observations:
+
+The professionalism you show in the text of the document is somewhat cut down
+by the hand-drawn diagrams.  It would be better to have a drawing program of
+some stripe to do those.  They DO look good in terms of content, it's just
+that they detract from the overall niceness of the document.
+
+Second, in the last diagram the use cases should NOT include the algorithm.
+That is actually an "actor" and should be drawn as such.  Also, the ellipse
+labeled "database access object class" should be an actor.
+
+Other than that, great work!
+
+you got 10% out of 10% for this deliverable which is an A-plus.
+
