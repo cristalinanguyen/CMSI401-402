@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import '../css/App.css';
 import Header from './Header';
 import MaterialTable from 'material-table';
-
-// import { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowUpward from '@material-ui/icons/ArrowUpward';
@@ -47,7 +46,7 @@ export default class Residents extends Component {
     this.state = {
       columns: [
         {
-          title: 'Name', field: 'name',
+          title: 'First Name', field: 'first_name',
           editComponent: props => (
             <input
               type="text"
@@ -56,17 +55,17 @@ export default class Residents extends Component {
             />
           )
         },
-        { title: 'Surname', field: 'surname' },
-        { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
+        { title: 'Last Name', field: 'last_name' },
+        { title: 'Year', field: 'year', type: 'numeric' },
         {
-          title: 'Birth Place',
-          field: 'birthCity',
-          lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
+          title: 'Notes',
+          field: 'notes',
+          lookup: { 1: 'Banned from ward B', 2: 'Conflict with Attending so-and-so' },
         },
       ],
       data: [
-        { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
-        { name: 'Zerya Betül', surname: 'Baran', birthYear: 2017, birthCity: 34 },
+        { first_name: 'Kelly', last_name: 'Jones', year: 1, notes: 1 },
+        { first_name: 'Andrew', last_name: 'Forney', year: 2, notes: 2 },
       ]
     }
   }
