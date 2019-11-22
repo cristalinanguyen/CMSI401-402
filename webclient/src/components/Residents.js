@@ -46,26 +46,24 @@ export default class Residents extends Component {
     this.state = {
       columns: [
         {
-          title: 'First Name', field: 'first_name',
+          title: 'Resident ID', field: 'id',
           editComponent: props => (
             <input
-              type="text"
+              type="numeric"
               value={props.value}
               onChange={e => props.onChange(e.target.value)}
             />
           )
         },
+        { title: 'First Name', field: 'first_name', },
         { title: 'Last Name', field: 'last_name' },
         { title: 'Year', field: 'year', type: 'numeric' },
-        {
-          title: 'Notes',
-          field: 'notes',
-          lookup: { 1: 'Banned from ward B', 2: 'Conflict with Attending so-and-so' },
-        },
       ],
       data: [
-        { first_name: 'Kelly', last_name: 'Jones', year: 1, notes: 1 },
-        { first_name: 'Andrew', last_name: 'Forney', year: 2, notes: 2 },
+        { id: 12345, first_name: 'Kelly', last_name: 'Jones', year: 2 },
+        { id: 54321, first_name: 'Andrew', last_name: 'Forney', year: 2 },
+        { id: 67890, first_name: 'Amelia', last_name: 'Jay', year: 1 },
+        { id: 19876, first_name: 'Sophia', last_name: 'Prochnow', year: 1 },
       ]
     }
   }

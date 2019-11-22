@@ -41,3 +41,52 @@
     -->
   </body>
 </html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript">
+// setup some JSON to use
+var residents = [
+    {
+        'id' : 12345,
+        'first_name' : 'Kelly',
+        'last_name' : 'Jones',
+        'year' : 2
+    },
+    {
+        'id' : 54321
+        'first_name' : 'Andrew',
+        'last_name' : 'Forney',
+        'year' : 2
+    },
+    {
+        'year' : 1,
+        'id' : 67890,
+        'first_name' : 'Amelia',
+        'last_name' : 'Jay'
+    },
+    {
+        'id' : 19876,
+        'first_name' : 'Sophia',
+        'last_name' : 'Prochnow',
+        'year' : 1
+    }
+];
+
+window.onload = function() {
+	// setup the button click
+	document.getElementById("theButton").onclick = function() {
+		doWork()
+	};
+}
+
+function doWork() {
+	// ajax the JSON to the server
+	$.post("receiver", residents, function(){
+
+	});
+	// stop link reloading the page
+ event.preventDefault();
+}
+</script>
+This will send data using AJAX to Python:<br /><br />
+<a id="theButton">Click Me</a>
