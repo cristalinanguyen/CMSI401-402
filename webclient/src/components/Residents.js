@@ -60,10 +60,29 @@ export default class Residents extends Component {
         { title: 'Year', field: 'year', type: 'numeric' },
       ],
       data: [
-        { id: 12345, first_name: 'Kelly', last_name: 'Jones', year: 2 },
-        { id: 54321, first_name: 'Andrew', last_name: 'Forney', year: 2 },
-        { id: 67890, first_name: 'Amelia', last_name: 'Jay', year: 1 },
-        { id: 19876, first_name: 'Sophia', last_name: 'Prochnow', year: 1 },
+        {
+            'id': 12345,
+            'first_name': 'Kelly',
+            'last_name': 'Jones',
+            'year': 2
+        },
+        { 
+            'id': 54321,
+            'first_name': 'Andrew',
+            'last_name': 'Forney',
+            'year': 2 
+        },
+        { 
+            'id': 67890,
+            'first_name': 'Amelia',
+            'last_name': 'Jay',
+            'year': 1 },
+        { 
+            'id': 19876,
+            'first_name': 'Sophia',
+            'last_name': 'Prochnow',
+            'year': 1 
+        },
       ]
     }
   }
