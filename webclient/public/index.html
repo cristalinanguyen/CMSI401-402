@@ -27,7 +27,7 @@
     <title>Residents Page</title>
   </head>
 
-  <body>
+  <body onload="pullData()">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -41,7 +41,10 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+
 </html>
+
+<!-- {{ names }} -->
 
 <!-- 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -50,27 +53,9 @@
 var data = [
     {
         'id' : 12345,
-        'first_name' : 'Kelly',
-        'last_name' : 'Jones',
+        'last' : 'Jones',
+        'name' : 'Kelly',
         'year' : 2
-    },
-    {
-        'id' : 54321
-        'first_name' : 'Andrew',
-        'last_name' : 'Forney',
-        'year' : 2
-    },
-    {
-        'year' : 1,
-        'id' : 67890,
-        'first_name' : 'Amelia',
-        'last_name' : 'Jay'
-    },
-    {
-        'id' : 19876,
-        'first_name' : 'Sophia',
-        'last_name' : 'Prochnow',
-        'year' : 1
     }
 ];
 

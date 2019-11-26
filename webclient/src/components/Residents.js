@@ -46,7 +46,7 @@ export default class Residents extends Component {
     this.state = {
       columns: [
         {
-          title: 'Resident ID', field: 'id',
+          title: 'Resident ID', field: 'ID',
           editComponent: props => (
             <input
               type="numeric"
@@ -55,49 +55,87 @@ export default class Residents extends Component {
             />
           )
         },
-        { title: 'First Name', field: 'first_name', },
-        { title: 'Last Name', field: 'last_name' },
+        { title: 'First Name', field: 'name', },
+        { title: 'Last Name', field: 'last' },
         { title: 'Year', field: 'year', type: 'numeric' },
-      ],
-      data: [
-        {
-            'id': 12345,
-            'first_name': 'Kelly',
-            'last_name': 'Jones',
-            'year': 2
-        },
-        { 
-            'id': 54321,
-            'first_name': 'Andrew',
-            'last_name': 'Forney',
-            'year': 2 
-        },
-        { 
-            'id': 67890,
-            'first_name': 'Amelia',
-            'last_name': 'Jay',
-            'year': 1 },
-        { 
-            'id': 19876,
-            'first_name': 'Sophia',
-            'last_name': 'Prochnow',
-            'year': 1 
-        },
-      ]
+      ], data : []
+    //   [
+    //     {
+    //       "ID": 1, 
+    //       "last": "Prochnow", 
+    //       "name": "Sophia", 
+    //       "year": 1
+    //     }, 
+    //     {
+    //       "ID": 3, 
+    //       "last": "Nguyen", 
+    //       "name": "Lina", 
+    //       "year": 2
+    //     }, 
+    //     {
+    //       "ID": 4, 
+    //       "last": "Namba", 
+    //       "name": "Liam", 
+    //       "year": 2
+    //     }, 
+    //     {
+    //       "ID": 5, 
+    //       "last": "Santander", 
+    //       "name": "Christian", 
+    //       "year": 2
+    //     }, 
+    //     {
+    //       "ID": 6, 
+    //       "last": "Flora", 
+    //       "name": "Annie", 
+    //       "year": 2
+    //     }, 
+    //     {
+    //       "ID": 10, 
+    //       "last": "Forney", 
+    //       "name": "Andrew", 
+    //       "year": 2
+    //     }, 
+    //     {
+    //       "ID": 15, 
+    //       "last": "Johnson", 
+    //       "name": "BJ", 
+    //       "year": 2
+    //     }
+    //   ]
     }
+  }
+
+  fetchData() {
+    console.log("fetching data from python localhost");
+    fetch('http://127.0.0.1:5000/', {
+      method: 'GET',
+    })
+      .then(r => r.json())
+      .then(r => {
+        //console.log(r)
+        //this.setState({residents_data: r})
+        this.setState({
+            Posts: r.map((r, i) => (
+                <p key={i} className="list-group-item">{r.text}</p>
+            ))
+        })    
+      })
+      .catch(err => console.log(err))
   }
 
   render() {
     return (
-    <div>
+    <div className="App">
         <Header>
             <h1>Residents Page</h1>
         </Header>
 
         <MaterialTable
             icons={tableIcons}
-            columns={this.state.columns}
-            data={this.state.data}
+            columns={this.state.Posts}
+            // data={this.state.data}
+            data = {this.state.r}
             editable={{
             onRowAdd: newData =>
                 new Promise((resolve, reject) => {
@@ -136,7 +174,12 @@ export default class Residents extends Component {
                 }),
             }}
         />
+        <p>
+          {this.state.residents_data}
+        </p>
+        <button onClick={() => this.fetchData()}>Get Residents Data</button>
     </div>
     )
   }
 }
+
