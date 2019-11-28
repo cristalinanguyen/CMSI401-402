@@ -58,71 +58,71 @@ export default class Residents extends Component {
         { title: 'First Name', field: 'name', },
         { title: 'Last Name', field: 'last' },
         { title: 'Year', field: 'year', type: 'numeric' },
-      ], data : []
-    //   [
-    //     {
-    //       "ID": 1, 
-    //       "last": "Prochnow", 
-    //       "name": "Sophia", 
-    //       "year": 1
-    //     }, 
-    //     {
-    //       "ID": 3, 
-    //       "last": "Nguyen", 
-    //       "name": "Lina", 
-    //       "year": 2
-    //     }, 
-    //     {
-    //       "ID": 4, 
-    //       "last": "Namba", 
-    //       "name": "Liam", 
-    //       "year": 2
-    //     }, 
-    //     {
-    //       "ID": 5, 
-    //       "last": "Santander", 
-    //       "name": "Christian", 
-    //       "year": 2
-    //     }, 
-    //     {
-    //       "ID": 6, 
-    //       "last": "Flora", 
-    //       "name": "Annie", 
-    //       "year": 2
-    //     }, 
-    //     {
-    //       "ID": 10, 
-    //       "last": "Forney", 
-    //       "name": "Andrew", 
-    //       "year": 2
-    //     }, 
-    //     {
-    //       "ID": 15, 
-    //       "last": "Johnson", 
-    //       "name": "BJ", 
-    //       "year": 2
-    //     }
-    //   ]
+      ], data : 
+      [
+        {
+          "ID": 1, 
+          "last": "Prochnow", 
+          "name": "Sophia", 
+          "year": 1
+        }, 
+        {
+          "ID": 3, 
+          "last": "Nguyen", 
+          "name": "Lina", 
+          "year": 2
+        }, 
+        {
+          "ID": 4, 
+          "last": "Namba", 
+          "name": "Liam", 
+          "year": 2
+        }, 
+        {
+          "ID": 5, 
+          "last": "Santander", 
+          "name": "Christian", 
+          "year": 2
+        }, 
+        {
+          "ID": 6, 
+          "last": "Flora", 
+          "name": "Annie", 
+          "year": 2
+        }, 
+        {
+          "ID": 10, 
+          "last": "Forney", 
+          "name": "Andrew", 
+          "year": 2
+        }, 
+        {
+          "ID": 15, 
+          "last": "Johnson", 
+          "name": "BJ", 
+          "year": 2
+        }
+      ]
     }
   }
 
-  fetchData() {
-    console.log("fetching data from python localhost");
-    fetch('http://127.0.0.1:5000/', {
-      method: 'GET',
-    })
-      .then(r => r.json())
-      .then(r => {
-        //console.log(r)
-        //this.setState({residents_data: r})
-        this.setState({
-            Posts: r.map((r, i) => (
-                <p key={i} className="list-group-item">{r.text}</p>
-            ))
-        })    
-      })
-      .catch(err => console.log(err))
-  }
+//   fetchData() {
+//     console.log("fetching data from python localhost");
+//     fetch('http://127.0.0.1:5000/', {
+//       method: 'GET',
+//     })
+//       .then(r => r.json())
+//       .then(r => {
+//         //console.log(r)
+//         //this.setState({residents_data: r})
+//         this.setState({
+//             Posts: r.map((r, i) => (
+//                 <p key={i} className="list-group-item">{r.text}</p>
+//             ))
+//         })    
+//       })
+//       .catch(err => console.log(err))
+//   }
 
   render() {
     return (
@@ -133,9 +133,9 @@ export default class Residents extends Component {
 
         <MaterialTable
             icons={tableIcons}
-            columns={this.state.Posts}
-            // data={this.state.data}
-            data = {this.state.r}
+            columns={this.state.columns}
+            data={this.state.data}
+            // data = {this.state.r}
             editable={{
             onRowAdd: newData =>
                 new Promise((resolve, reject) => {
@@ -174,10 +174,10 @@ export default class Residents extends Component {
                 }),
             }}
         />
-        <p>
+        {/* <p>
           {this.state.residents_data}
         </p>
-        <button onClick={() => this.fetchData()}>Get Residents Data</button>
+        <button onClick={() => this.fetchData()}>Get Residents Data</button> */}
     </div>
     )
   }
