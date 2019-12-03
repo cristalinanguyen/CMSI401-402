@@ -97,7 +97,6 @@ var keys = {
 
 ReactDOM.render(
     <div>
-      Rendered by react!
       <Timeline
         groups={groups}
         items={items}
@@ -113,7 +112,7 @@ export default class CurrentSchedule extends Component {
     constructor(props) {
         super(props);
 
-        const { groups, items } = generateFakeData(150);
+        const { groups, items } = generateFakeData(24);
         const defaultTimeStart = moment()
             .startOf("day")
             .toDate();
