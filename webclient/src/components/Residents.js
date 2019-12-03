@@ -20,6 +20,8 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 
+import { getResidents } from '../api';
+
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
     Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
@@ -58,70 +60,24 @@ export default class Residents extends Component {
         { title: 'First Name', field: 'name', },
         { title: 'Last Name', field: 'last' },
         { title: 'Year', field: 'year', type: 'numeric' },
-      ], data : 
-      [
-        {
-          "ID": 1, 
-          "last": "Prochnow", 
-          "name": "Sophia", 
-          "year": 1
-        }, 
-        {
-          "ID": 3, 
-          "last": "Nguyen", 
-          "name": "Lina", 
-          "year": 2
-        }, 
-        {
-          "ID": 4, 
-          "last": "Namba", 
-          "name": "Liam", 
-          "year": 2
-        }, 
-        {
-          "ID": 5, 
-          "last": "Santander", 
-          "name": "Christian", 
-          "year": 2
-        }, 
-        {
-          "ID": 6, 
-          "last": "Flora", 
-          "name": "Annie", 
-          "year": 2
-        }, 
-        {
-          "ID": 10, 
-          "last": "Forney", 
-          "name": "Andrew", 
-          "year": 2
-        }, 
-        {
-          "ID": 15, 
-          "last": "Johnson", 
-          "name": "BJ", 
-          "year": 2
-        }
-      ]
+      ],
+
+      data: []      
     }
   }
 
-//   fetchData() {
-//     console.log("fetching data from python localhost");
-//     fetch('http://127.0.0.1:5000/', {
-//       method: 'GET',
-//     })
-//       .then(r => r.json())
-//       .then(r => {
-//         //console.log(r)
-//         //this.setState({residents_data: r})
-//         this.setState({
-//             Posts: r.map((r, i) => (
-//                 <p key={i} className="list-group-item">{r.text}</p>
-//             ))
-//         })    
+  componentDidMount() {
+    getResidents().then(residents => {
+        this.setState({ data: residents })
+    })
+  }
+
+//   componentDidUpdate() {
+//       addResidents().then(newData => {
+//           newData = []
+//           // add new data to data
+//           this.setState({ data : newData })
 //       })
-//       .catch(err => console.log(err))
 //   }
 
   render() {
@@ -135,49 +91,42 @@ export default class Residents extends Component {
             icons={tableIcons}
             columns={this.state.columns}
             data={this.state.data}
-            // data = {this.state.r}
-            editable={{
-            onRowAdd: newData =>
-                new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    {
-                    const data = this.state.data;
-                    data.push(newData);
-                    this.setState({ data }, () => resolve());
-                    }
-                    resolve()
-                }, 1000)
-                }),
-            onRowUpdate: (newData, oldData) =>
-                new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    {
-                    const data = this.state.data;
-                    const index = data.indexOf(oldData);
-                    data[index] = newData;
-                    this.setState({ data }, () => resolve());
-                    }
-                    resolve()
-                }, 1000)
-                }),
-            onRowDelete: oldData =>
-                new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    {
-                    let data = this.state.data;
-                    const index = data.indexOf(oldData);
-                    data.splice(index, 1);
-                    this.setState({ data }, () => resolve());
-                    }
-                    resolve()
-                }, 1000)
-                }),
+
+            options={{
+                pageSize: 12,
+                pageSizeOptions: [12, 24, 48]
             }}
+
+            // editable={{
+            // onRowAdd: newData =>
+            //     addResidents(newData)
+
+            // onRowUpdate: (newData, oldData) =>
+            //     new Promise((resolve, reject) => {
+            //     setTimeout(() => {
+            //         {
+            //         const data = this.state.data;
+            //         const index = data.indexOf(oldData);
+            //         data[index] = newData;
+            //         this.setState({ data }, () => resolve());
+            //         }
+            //         resolve()
+            //     }, 1000)
+            //     }),
+            // onRowDelete: oldData =>
+            //     new Promise((resolve, reject) => {
+            //     setTimeout(() => {
+            //         {
+            //         let data = this.state.data;
+            //         const index = data.indexOf(oldData);
+            //         data.splice(index, 1);
+            //         this.setState({ data }, () => resolve());
+            //         }
+            //         resolve()
+            //     }, 1000)
+            //     }),
+            // }}
         />
-        {/* <p>
-          {this.state.residents_data}
-        </p>
-        <button onClick={() => this.fetchData()}>Get Residents Data</button> */}
     </div>
     )
   }
