@@ -50,6 +50,24 @@ const mockGetResidents = () => Promise.resolve([
     }
 ])
 
+const mockAlgorithmOutput = () => Promise.resolve([
+    {
+      "block": 1, 
+      "last": "Nguyen", 
+      "name": "Lina"
+    },
+    {
+      "block": 3, 
+      "last": "Prochnow", 
+      "name": "Sophia"
+    },
+    {
+      "block": 2, 
+      "last": "Jay", 
+      "name": "Amelia"
+    }
+])
+
 export {
       getResidents, 
     //   addResidents
