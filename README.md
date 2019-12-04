@@ -14,3 +14,6 @@ USchedule’s graphical user interface is designed using Node.js and React.
 The scheduling algorithm and database access object are written in Python and connect to the front end using Flask.
 
 Our MySQL database is hosted through Amazon Web Services Relational Database Services.
+
+
+![The Landing Page](https://github.com/cristalinanguyen/CMSI401/blob/master/docs/Misc%20files/Screen%20Shot%202019-12-04%20at%203.03.04%20PM.jpeg)
