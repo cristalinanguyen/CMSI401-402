@@ -1,171 +1,109 @@
-// import React from "react";
-// import { render } from "react-dom";
-// import Paper from "@material-ui/core/Paper";
-// import { ViewState } from "@devexpress/dx-react-scheduler";
-// import {
-//   Scheduler,
-//   WeekView,
-//   Appointments
-// } from "@devexpress/dx-react-scheduler-material-ui";
-// import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-// import { blue } from "@material-ui/core/colors";
-// import { appointments } from "./data";
-
-// const theme = createMuiTheme({ palette: { type: "light", primary: blue } });
-
-// export default class CurrentSchedule extends React.PureComponent {
-//   constructor(props) {
-//     super(props);
-
-//     this.state = {
-//       data: appointments
-//     };
-//   }
-//   render() {
-//     const { data } = this.state;
-
-//     return (
-//       <MuiThemeProvider theme={theme}>
-//         <Paper>
-//           <Scheduler data={data}>
-//             <ViewState currentDate="2018-06-28" />
-//             <WeekView startDayHour={9} endDayHour={19} />
-//             <Appointments />
-//           </Scheduler>
-//         </Paper>
-//       </MuiThemeProvider>
-//     );
-//   }
-// }
-
-// render(<CurrentSchedule />, document.getElementById("root"));
-
-
 import React, { Component } from 'react';
 import '../css/App.css';
 import Header from './Header';
-import 'react-calendar-timeline/lib/Timeline.css';
-import moment from 'moment';
-import ReactDOM from 'react-dom';
-import generateFakeData from "./generate-fake-data";
+import MaterialTable from 'material-table';
+import { forwardRef } from 'react';
 
-import Timeline, {
-    TimelineHeaders,
-    SidebarHeader,
-    DateHeader
-  } from "react-calendar-timeline/lib";
-  
+import AddBox from '@material-ui/icons/AddBox';
+import ArrowUpward from '@material-ui/icons/ArrowUpward';
+import Check from '@material-ui/icons/Check';
+import ChevronLeft from '@material-ui/icons/ChevronLeft';
+import ChevronRight from '@material-ui/icons/ChevronRight';
+import Clear from '@material-ui/icons/Clear';
+import DeleteOutline from '@material-ui/icons/DeleteOutline';
+import Edit from '@material-ui/icons/Edit';
+import FilterList from '@material-ui/icons/FilterList';
+import FirstPage from '@material-ui/icons/FirstPage';
+import LastPage from '@material-ui/icons/LastPage';
+import Remove from '@material-ui/icons/Remove';
+import SaveAlt from '@material-ui/icons/SaveAlt';
+import Search from '@material-ui/icons/Search';
+import ViewColumn from '@material-ui/icons/ViewColumn';
 
-const groups = [{ id: 1, title: 'group 1' }, { id: 2, title: 'group 2' }]
- 
-const items = [
-  {
-    id: 1,
-    group: 1,
-    title: 'item 1',
-    start_time: moment(),
-    end_time: moment().add(1, 'hour')
-  },
-  {
-    id: 2,
-    group: 2,
-    title: 'item 2',
-    start_time: moment().add(-0.5, 'hour'),
-    end_time: moment().add(0.5, 'hour')
-  },
-  {
-    id: 3,
-    group: 1,
-    title: 'item 3',
-    start_time: moment().add(2, 'hour'),
-    end_time: moment().add(3, 'hour')
-  }
-]
+import { mockAlgorithmOutput } from '../api';
 
-var keys = {
-    groupIdKey: "id",
-    groupTitleKey: "title",
-    groupRightTitleKey: "rightTitle",
-    itemIdKey: "id",
-    itemTitleKey: "title",
-    itemDivTitleKey: "title",
-    itemGroupKey: "group",
-    itemTimeStartKey: "start",
-    itemTimeEndKey: "end",
-    groupLabelKey: "title"
-  };
+const tableIcons = {
+    Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
+    Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
+    Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+    Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
+    DetailPanel: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+    Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
+    Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
+    Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref} />),
+    FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
+    LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
+    NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+    PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
+    ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+    Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
+    SortArrow: forwardRef((props, ref) => <ArrowUpward {...props} ref={ref} />),
+    ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
+    ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
+};
 
-ReactDOM.render(
-    <div>
-      <Timeline
-        groups={groups}
-        items={items}
-        defaultTimeStart={moment().add(-12, 'hour')}
-        defaultTimeEnd={moment().add(12, 'hour')}
-      />
-    </div>,
-    document.getElementById('root')
-  )
-
-export default class CurrentSchedule extends Component {
-
-    constructor(props) {
-        super(props);
-
-        const { groups, items } = generateFakeData(24);
-        const defaultTimeStart = moment()
-            .startOf("day")
-            .toDate();
-        const defaultTimeEnd = moment()
-            .startOf("day")
-            .add(1, "day")
-            .toDate();
-
-        this.state = {
-            groups,
-            items,
-            defaultTimeStart,
-            defaultTimeEnd
-        };
-        }
-
-        render() {
-        const { groups, items, defaultTimeStart, defaultTimeEnd } = this.state;
-
-        return (
-
-            <div>
-                <Header/>
-                <h1>Schedule</h1>
-
-                <Timeline
-                groups={groups}
-                items={items}
-                keys={keys}
-                sidebarContent={<div>Above The Left</div>}
-                itemsSorted
-                itemTouchSendsClick={false}
-                stackItems
-                itemHeightRatio={0.75}
-                showCursorLine
-                canMove={false}
-                canResize={false}
-                defaultTimeStart={defaultTimeStart}
-                defaultTimeEnd={defaultTimeEnd}
-                >
-
-            <TimelineHeaders className="sticky">
-                <SidebarHeader>
-                {({ getRootProps }) => {
-                    return <div {...getRootProps()}>Left</div>;
-                }}
-                </SidebarHeader>
-                <DateHeader unit="primaryHeader" />
-                <DateHeader />
-            </TimelineHeaders>
-            </Timeline>
-
-            </div>
-        );
+export default class Residents extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      columns: [
+        { title: 'Block', field: 'block', type: 'numeric' 
+      
+        ,cellStyle: {
+              backgroundColor: '#87ADCF',
+              color: '#FFF'
+            },
+            headerStyle: {
+              backgroundColor: '#3876AE',
+            }
+        },
+        { title: 'First Name', field: 'name', headerStyle: {
+              backgroundColor: '#658CAE',
+            }},
+        { title: 'Last Name', field: 'last', headerStyle: {
+              backgroundColor: '#658CAE',
+            }},
+      ],
+      
+      data: []      
     }
+  }
+
+  componentDidMount() {
+    mockAlgorithmOutput().then(residents => {
+        this.setState({ data: residents })
+    })
+  }
+
+
+  render() {
+    return (
+    <div className="App">
+        <Header>
+            <h1>Residents Page</h1>
+        </Header>
+
+        <MaterialTable
+            title= "Block Schedule"
+            options={{
+              grouping: true
+            }}
+            icons={tableIcons}
+            columns={this.state.columns}
+            data={this.state.data}
+
+            options={{
+                pageSize: 12,
+                pageSizeOptions: [12, 24, 48],
+                headerStyle: {
+              backgroundColor: '#658CAE',
+              color: '#FFF'
+          }
+            }}
+
+        />
+        
+    </div>
+    )
+  }
 }
