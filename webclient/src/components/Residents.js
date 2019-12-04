@@ -88,6 +88,7 @@ export default class Residents extends Component {
         </Header>
 
         <MaterialTable
+            title = "Schedule"
             icons={tableIcons}
             columns={this.state.columns}
             data={this.state.data}

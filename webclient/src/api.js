@@ -69,6 +69,5 @@ const mockAlgorithmOutput = () => Promise.resolve([
 ])
 
 export {
-      getResidents, 
-    //   addResidents
+      getResidents, mockAlgorithmOutput
   }
