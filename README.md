@@ -11,7 +11,7 @@ Dr. Jones is responsible for the creation of a call schedule every six months to
 We created an application which will take in specific constraints and output a schedule in 2 month blocks.
 The purpose of this system is to accelerate this process while ensuring that every constraint that Dr. Jones desires is satisfied. 
 
-USchedule’s graphical user interface is designed using Node.js and React.The scheduling algorithm and database access object are written in Python and connect to the front end using Flask. Our MySQL database is hosted through Amazon Web Services Relational Database Services.
+USchedule’s graphical user interface is designed using Node.js and React. The scheduling algorithm and database access object are written in Python and connect to the front end using Flask. Our MySQL database is hosted through Amazon Web Services Relational Database Services.
 
 
 ![The Landing Page](https://github.com/cristalinanguyen/CMSI401/blob/master/docs/Misc%20files/Screen%20Shot%202019-12-04%20at%203.03.04%20PM.jpeg)
