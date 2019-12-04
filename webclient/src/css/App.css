@@ -78,6 +78,7 @@
   color: white;
   margin-left: 20px;
   background-color:  rgb(75, 122, 162);
+  border: .1px solid #900;
   border-color:  rgb(75, 122, 162);
   font-family: "HelveticaNeue-Bold", Helvetica, Arial, serif;
   font-size: 14px;

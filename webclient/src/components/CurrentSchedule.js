@@ -48,6 +48,7 @@ export default class Residents extends Component {
     this.state = {
       columns: [
         { title: 'Block', field: 'block', type: 'numeric' 
+      
         ,cellStyle: {
               backgroundColor: '#87ADCF',
               color: '#FFF'
@@ -63,6 +64,7 @@ export default class Residents extends Component {
               backgroundColor: '#658CAE',
             }},
       ],
+      
       data: []      
     }
   }
@@ -82,8 +84,8 @@ export default class Residents extends Component {
         </Header>
 
         <MaterialTable
-            title = "Block Schedule"
-            options = {{
+            title= "Block Schedule"
+            options={{
               grouping: true
             }}
             icons={tableIcons}
@@ -94,11 +96,13 @@ export default class Residents extends Component {
                 pageSize: 12,
                 pageSizeOptions: [12, 24, 48],
                 headerStyle: {
-                  backgroundColor: '#658CAE',
-                  color: '#FFF'
-                }
+              backgroundColor: '#658CAE',
+              color: '#FFF'
+          }
             }}
+
         />
+        
     </div>
     )
   }
