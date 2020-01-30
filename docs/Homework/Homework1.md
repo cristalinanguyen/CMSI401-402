@@ -1,13 +1,13 @@
 # Homework 1
 ## Stephens
-### 1.1, p.12: What are the basic tasks that all software engineering projects must handle?
+### #1.1, p.12: What are the basic tasks that all software engineering projects must handle?
 
 
-### 1.2, p.12: Give a one sentence description of each of the tasks you listed in Exercise 1.
+### #1.2, p.12: Give a one sentence description of each of the tasks you listed in Exercise 1.
 
-### 2.4, p.26: Like Microsoft Word, Google Docs [sic] provides some simple change tracking tools. Go to http://www.google.com/docs/about/ to learn more and sign up [if you do not have an account already]. Then create a document, save it, close it, reopen it, and make changes to it as you did in Exercise 1.
+### #2.4, p.26: Like Microsoft Word, Google Docs [sic] provides some simple change tracking tools. Go to http://www.google.com/docs/about/ to learn more and sign up [if you do not have an account already]. Then create a document, save it, close it, reopen it, and make changes to it as you did in Exercise 1.
 
-### 2.5, p.26: What does JBGE stand for and what does it mean?
+### #2.5, p.26: What does JBGE stand for and what does it mean?
 
 ### Table 3.2-3.4
 
