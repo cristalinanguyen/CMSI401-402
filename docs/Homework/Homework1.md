@@ -1,7 +1,7 @@
 # Homework 1
 ## Stephens
 ### #1.1, p.12: What are the basic tasks that all software engineering projects must handle?
-
+ekajdnakjnk
 
 ### #1.2, p.12: Give a one sentence description of each of the tasks you listed in Exercise 1.
 
@@ -11,17 +11,17 @@
 
 ### Table 3.2-3.4
 
-### 3.2, p.51: Use critical path methods to find the total expected time from the project's start for each task's completion. Find the critical path. What are the tasks on the critical path? What is the total expected duration of the project in working days?
+### #3.2, p.51: Use critical path methods to find the total expected time from the project's start for each task's completion. Find the critical path. What are the tasks on the critical path? What is the total expected duration of the project in working days?
 
-### 3.4, p.51: Build a Gantt chart for the network you drew in Exercise 3. [Yes, I know, you weren't assigned that one — however, when you do Exercise 2 you should have enough information for this one.] Start on Wednesday, January 1, 2020, and don't work on weekends or the following holidays: New Year's Day (1/1), Martin Luther King Day	(1/20), President's Day	(2/17),
+### #3.4, p.51: Build a Gantt chart for the network you drew in Exercise 3. [Yes, I know, you weren't assigned that one — however, when you do Exercise 2 you should have enough information for this one.] Start on Wednesday, January 1, 2020, and don't work on weekends or the following holidays: New Year's Day (1/1), Martin Luther King Day	(1/20), President's Day	(2/17),
 
-### 3.6, p.51: In addition to losing time from vacation and sick leave, projects can suffer from problems that just strike out of nowhere. Sort of a bad version of deus ex machina. For example, senior management could decide to switch your target platform from Windows desktop PSs to the latest smartwatch technology. Or a strike in the Far East could delay the shipment of your new servers. Or one of your developers might move to Iceland. How can you handle these sorts of completely unpredictable problems?
+### #3.6, p.51: In addition to losing time from vacation and sick leave, projects can suffer from problems that just strike out of nowhere. Sort of a bad version of deus ex machina. For example, senior management could decide to switch your target platform from Windows desktop PSs to the latest smartwatch technology. Or a strike in the Far East could delay the shipment of your new servers. Or one of your developers might move to Iceland. How can you handle these sorts of completely unpredictable problems?
 
-### 3.8, p.51: What are the two biggest mistakes you can make while tracking tasks?
+### #3.8, p.51: What are the two biggest mistakes you can make while tracking tasks?
 
-### 4.1, p.82: List five characteristics of good requirements.
+### #4.1, p.82: List five characteristics of good requirements.
 
-### 4.3, p.82: Suppose you want to build a program called TimeShifter to upload and download files at scheduled times while you're on vacation. List the audience-oriented categories for each requirement in the list below. Are there requirements in each category? [If not, state why not…].
+### #4.3, p.82: Suppose you want to build a program called TimeShifter to upload and download files at scheduled times while you're on vacation. List the audience-oriented categories for each requirement in the list below. Are there requirements in each category? [If not, state why not…].
 
 - a. Allow users to monitor uploads/downloads while away from the office.
 - b. Let the user specify website log-in parameters such as an Internet address, a port, a username, and a password.
@@ -43,4 +43,4 @@
 
 ### Figure 4.1
 
-### 4.9, p.83-84: Figure 4-1 shows the design for a simple hangman game that will run on smartphones. When you click the New Bame button, the program picks a random mystery word from a large list and starts a new game. Then if you click a letter, either the letter is filled in where it appears in the mystery word, or a new piece of Mr. Bones's skeleton appears. In either case, the letter you clicked is grayed out so that you don't pick it again. If you guess all the letters in the mystery word, the game displays a message that says, "Contratulations, you won!" If you build Mr. Bones's complete skeleton, a message says, "Sorry, you lost." Brainstorm this application and see if you can think of ways you might change it. Use the MOSCOW method to prioritize your changes.
+### #4.9, p.83-84: Figure 4-1 shows the design for a simple hangman game that will run on smartphones. When you click the New Bame button, the program picks a random mystery word from a large list and starts a new game. Then if you click a letter, either the letter is filled in where it appears in the mystery word, or a new piece of Mr. Bones's skeleton appears. In either case, the letter you clicked is grayed out so that you don't pick it again. If you guess all the letters in the mystery word, the game displays a message that says, "Contratulations, you won!" If you build Mr. Bones's complete skeleton, a message says, "Sorry, you lost." Brainstorm this application and see if you can think of ways you might change it. Use the MOSCOW method to prioritize your changes.
