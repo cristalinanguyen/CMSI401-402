@@ -13,9 +13,11 @@ Completed
 JBGE stands for "Just Barely Good Enough", and it is usually in reference to code documentation and comments. It is the idea that if you provide too much of them, you end up wasting a lot of time when changes to the code happen later on.
 
 ### Table 3.2-3.4
+![Figure 3.2-3.4](https://user-images.githubusercontent.com/21330088/73501169-c301cb80-4379-11ea-8d70-64743f6d394b.png)
 
 ### #3.2: Use critical path methods to find the total expected time from the project's start for each task's completion. Find the critical path. What are the tasks on the critical path? What is the total expected duration of the project in working days?
 The critial path is 32 days long and consists of H -> I -> D -> E -> M -> Q
+![Problem3.2](https://user-images.githubusercontent.com/21330088/73501166-c2693500-4379-11ea-8795-5174af2a9a73.jpeg)
 
 ### #3.4: Build a Gantt chart for the network you drew in Exercise 3. [Yes, I know, you weren't assigned that one — however, when you do Exercise 2 you should have enough information for this one.] Start on Wednesday, January 1, 2020, and don't work on weekends or the following holidays: New Year's Day (1/1), Martin Luther King Day	(1/20), President's Day	(2/17),
 
@@ -48,5 +50,6 @@ Five characteristics of good requirements are clear, unambiguous, consistent, pr
 
 
 ### Figure 4.1
+![Figure4.1](https://user-images.githubusercontent.com/21330088/73501168-c2693500-4379-11ea-825c-65a2566ad4de.jpg)
 
 ### #4.9: Figure 4-1 shows the design for a simple hangman game that will run on smartphones. When you click the New Bame button, the program picks a random mystery word from a large list and starts a new game. Then if you click a letter, either the letter is filled in where it appears in the mystery word, or a new piece of Mr. Bones's skeleton appears. In either case, the letter you clicked is grayed out so that you don't pick it again. If you guess all the letters in the mystery word, the game displays a message that says, "Contratulations, you won!" If you build Mr. Bones's complete skeleton, a message says, "Sorry, you lost." Brainstorm this application and see if you can think of ways you might change it. Use the MOSCOW method to prioritize your changes.
