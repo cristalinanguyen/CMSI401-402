@@ -53,3 +53,26 @@ Five characteristics of good requirements are clear, unambiguous, consistent, pr
 ![Figure4.1](https://user-images.githubusercontent.com/21330088/73501168-c2693500-4379-11ea-825c-65a2566ad4de.jpg)
 
 ### #4.9: Figure 4-1 shows the design for a simple hangman game that will run on smartphones. When you click the New Bame button, the program picks a random mystery word from a large list and starts a new game. Then if you click a letter, either the letter is filled in where it appears in the mystery word, or a new piece of Mr. Bones's skeleton appears. In either case, the letter you clicked is grayed out so that you don't pick it again. If you guess all the letters in the mystery word, the game displays a message that says, "Contratulations, you won!" If you build Mr. Bones's complete skeleton, a message says, "Sorry, you lost." Brainstorm this application and see if you can think of ways you might change it. Use the MOSCOW method to prioritize your changes.
+
+-	It must display all letters in the alphabet 
+-	It must display how long the word is 
+-	It must allow for users to guess any letter in the alphabet 
+-	It must display something to show if your guess is correct 
+-	It must not allow users to guess a letter that they have already guessed 
+
+-	It should display a skeleton 
+-	It should be colorful 
+-	It should be visually appealing 
+-	It should be interactive 
+-	It should be easily learnable 
+
+-	It could have sound 
+-	It could have a better way of showing if a guess was correct or not – x’s on the wrong letters 
+-	It could have more color – red and green for right and wrong 
+-	It could have a larger skeleton image 
+-	It could have a hint feature 
+-	It could be a 2-player game where player 1 thinks of the word and player 2 will guess 
+
+
+-	It won’t be too complex 
+
