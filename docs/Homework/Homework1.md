@@ -33,20 +33,35 @@ Five characteristics of good requirements are clear, unambiguous, consistent, pr
 ### #4.3: Suppose you want to build a program called TimeShifter to upload and download files at scheduled times while you're on vacation. List the audience-oriented categories for each requirement in the list below. Are there requirements in each category? [If not, state why not…].
 
 a. Allow users to monitor uploads/downloads while away from the office. – User/functional Requirements 
+
 b. Let the user specify website log-in parameters such as an Internet address, a port, a username, and a password. – User/ functional requirements 
+
 c. Let the user specify upload/download parameters such a number of retries if there's a problem. – User/functional requirements 
+
 d. Let the user select an Internet location, a local file, and a time to perform the upload/download. – User/functional requirements 
+
 e. Let the user schedule uploads/downloads at any time. – User/functional requirements 
+
 f. Allow uploads/downloads to run at any time. – Functional requirements 
+
 g. Make uploads/downloads transfer at least 8 Mbps. – Functional requirements 
+
 h. Run uploads/downloads sequentially. Two cannot run at the same time. – Nonfunctional requirements 
+
 i. If an upload/download is scheduled for a time when another is in progress, it waits until the other one finishes. – Nonfunctional requirements 
+
 j. Perform schedule uploads/downloads. – nonfunctional requirements 
+
 k. Keep a log of all attempted uploads/downloads and whether the succeeded. – functional requirements 
+
 l. Let the user empty the log. – User/functional Requirements 
+
 m. Display reports of upload/download attempts. – functional requirements 
+
 n. Let the user view the log reports on a remote device such as a phone. – User/functional requirements 
+
 o. Send an e-mail to an administrator if an upload/download fails more than its maximum retry number of times. – functional requirements 
+
 p. Send a text message to an administrator if an upload/download fails more than its maximum retry number of times. – functional requirements 
 
 There are no business requirements 
