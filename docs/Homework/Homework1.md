@@ -44,19 +44,19 @@ e. Let the user schedule uploads/downloads at any time. – User/functional requ
 
 f. Allow uploads/downloads to run at any time. – Functional requirements 
 
-g. Make uploads/downloads transfer at least 8 Mbps. – Functional requirements 
+g. Make uploads/downloads transfer at least 8 Mbps. – Nonfunctional requirements 
 
 h. Run uploads/downloads sequentially. Two cannot run at the same time. – Nonfunctional requirements 
 
 i. If an upload/download is scheduled for a time when another is in progress, it waits until the other one finishes. – Nonfunctional requirements 
 
-j. Perform schedule uploads/downloads. – nonfunctional requirements 
+j. Perform schedule uploads/downloads. – Functional requirements 
 
-k. Keep a log of all attempted uploads/downloads and whether the succeeded. – functional requirements 
+k. Keep a log of all attempted uploads/downloads and whether the succeeded. – Nonfunctional requirements 
 
-l. Let the user empty the log. – User/functional Requirements 
+l. Let the user empty the log. – User/Nonfunctional Requirements 
 
-m. Display reports of upload/download attempts. – functional requirements 
+m. Display reports of upload/download attempts. – User/functional requirements 
 
 n. Let the user view the log reports on a remote device such as a phone. – User/functional requirements 
 
