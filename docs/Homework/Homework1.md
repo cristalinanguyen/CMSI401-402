@@ -64,7 +64,7 @@ o. Send an e-mail to an administrator if an upload/download fails more than its 
 
 p. Send a text message to an administrator if an upload/download fails more than its maximum retry number of times. – functional requirements 
 
-There are no business requirements 
+There are no business requirements. This is because this list does not lay out any of the project's high-level goals about what the customer hopes to achieve with the project, or what the business hopes they get in regards to customer results. 
 
 
 ### Figure 4.1
