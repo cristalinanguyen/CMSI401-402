@@ -1,0 +1,30 @@
+
+
+Evaluation for homework #1
+CMSI 402 ~~ Spring 2020
+====================================
+
+1-1 basic tasks; there are 8                    8 points
+1.2 descriptions                                8 points
+2.4 google docs [gimme, accept anything]        1 point
+2.5 JBGE                                        1 point
+3.2 critical path [3], total time [2]           5 points
+3.4 Gantt chart [4], finish date [1]            5 points
+3.6 deus ex machina                             1 point
+3.8 biggest mistakes                            2 points
+4.1 five characteristics of good req'ts         1 point
+4.3 TimeShifter req'ts categorizations          3.75 points
+      First one is B
+      Let user schedule up/down is N
+      Allow up/down any time is N
+      Keep a log is F
+4.9 MoSCoW for Mr. Bones                        3 points
+
+
+Total possible score: 40 points
+
+Your score: 38.75 out of 40 = 96.88% which is an A
+
+
+Good job!!
+
