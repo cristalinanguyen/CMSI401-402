@@ -20,11 +20,7 @@ A client/server architecture would be implemented in this case scenario to hold 
 
 ### #5.8: Draw a state machine diagram to let a program read floating point numbers in scientific notation as in +37 or -12.3e+17 (which means -12.3 x 1017). Allow both E and e for the exponent symbol. [Jeez, is this like Dr. Dorin's DFAs, or what???]
 
-```
-
-**TO DO**
-
-```
+<img width="837" alt="Screen Shot 2020-02-16 at 2 38 04 PM" src="https://user-images.githubusercontent.com/23061329/74614116-0a05f580-50ca-11ea-9e84-496e8e03b29a.png">
 
 ### #6.1: Consider the `ClassyDraw` classes `Line`, `Rectangle`, `Ellipse`, `Star`, and `Text`. What properties do these classes all share? What properties do they not share? Are there any properties shared by some classes and not others? Where should the shared and nonshared properties be implemented?
 
