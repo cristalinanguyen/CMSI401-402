@@ -39,11 +39,7 @@ They all share properties such as background color, foreground color, and thickn
 * Supplier — Name, Phone, Address, Products, SupplierID
 * VicePresident — Name, Phone, Address, EmployeeID, Office, Salary, Managers
 
-```
-
-**TO DO**
-
-```
+<img width="480" alt="Screen Shot 2020-02-17 at 4 27 21 PM" src="https://user-images.githubusercontent.com/23061329/74693834-61779480-51a2-11ea-848c-51a3a46e9a34.png">
 
 ### #6.6: Suppose your company has many managerial types such as department manager, project manager, and division manager. You also have multiple levels of vice president, some of whom report to other manager types. How could you combine the `Salaried`, `Manager`, and `VicePresident` types you used in Exercise 3? Draw the new inheritance hierarchy.
 
