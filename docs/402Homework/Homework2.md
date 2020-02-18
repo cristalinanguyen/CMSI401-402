@@ -28,11 +28,7 @@ They all share properties such as background color, foreground color, and thickn
 
 ### #6.2: Draw an inheritance diagram showing the properties you identified for Exercise 1. (Create parent classes as needed, and don't forget the `Drawable` class at the top.)
 
-```
-
-**TO DO**
-
-```
+<img width="551" alt="Screen Shot 2020-02-17 at 4 15 11 PM" src="https://user-images.githubusercontent.com/23061329/74693424-adc1d500-51a0-11ea-909d-c2836f617110.png">
 
 ### #6.3: The list below gives the properties of several business-oriented classes. Assuming a `Supplier` is someone who supplies products for your business, draw an inheritance diagram showing the relationships among these classes. (Hint: Add extra classes if necessary.)
 
