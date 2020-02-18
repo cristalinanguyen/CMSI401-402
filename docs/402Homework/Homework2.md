@@ -43,8 +43,4 @@ They all share properties such as background color, foreground color, and thickn
 
 ### #6.6: Suppose your company has many managerial types such as department manager, project manager, and division manager. You also have multiple levels of vice president, some of whom report to other manager types. How could you combine the `Salaried`, `Manager`, and `VicePresident` types you used in Exercise 3? Draw the new inheritance hierarchy.
 
-```
-
-**TO DO**
-
-```
+You could add the additional properties to the salaried class, giving it office, salary, boss, and employees. This would now be directly under the employee class and the HasSalary would be removed. 
