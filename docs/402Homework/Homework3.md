@@ -42,6 +42,7 @@ Yes! With the error message, this can help to return a more specific response me
 *Using top-down design, write the highest level of instructions that you would use to tell someone how to drive your car to the nearest supermarket. (Keep it at a very high level.) List any assumptions you make.*
 
 *assuming the person is at my house*
+
 - Grab my keys from the kitchen 
          - Open thr front door
          - Close the front door 
@@ -52,9 +53,13 @@ Yes! With the error message, this can help to return a more specific response me
 - Get in the drivers seat
          - sit 
          - put on seatbelt 
+         
          *assuming they know how to adjust mirrors*
-         - adjust mirrors and seat if necessary 
+         
+- adjust mirrors and seat if necessary 
+         
 *assuming they have a smartphone and know how to use maps*
+       
          - open smartphone
          - open maps app
 - Use google maps to search for the nearest super market 
@@ -68,7 +73,9 @@ Yes! With the error message, this can help to return a more specific response me
          - press the start button located to the side of the steering wheel 
 - put the car in drive 
          - use middle handle to move its placement to D
+         
 *assuming they have their drivers license and know how to drive...* 
+
 - use driving skills to follow route on phone to supermarket
 - pull into parking lot
 - Pull into spot in parking lot
