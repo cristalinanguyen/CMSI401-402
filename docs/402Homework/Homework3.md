@@ -1,8 +1,7 @@
-**Problem 7.1, Stephens page 169
+**Problem 7.1, Stephens page 169**
 
 *Fix the Comments 
 
-'''
          // Use Euclid's algorithm to calculate the GCD.
          provate long GCD( long a, long b )
          {
