@@ -2,21 +2,16 @@
 
 *Fix the Comments* 
 
-         // Use Euclid's algorithm to calculate the GCD.
+         // Eulid's Alg to find the greatest common denominator of a and b 
          provate long GCD( long a, long b )
          {
-            // Get the absolute value of a and b
             a = Math.abs( a );
             b = Math.abs( b );
 
-            //Repeat until we're done
             for( ; ; )
             {
-               // Set remainder to the remainder of a / b
                long remainder = a % b;
-               // If remainder is 0, we're done.  Return b.
                If( remainder == 0 ) return b;
-               // Set a = b and b = remainder.
                a = b;
                b = remainder;
             };
@@ -25,11 +20,23 @@
 **Problem 7.2, Stephens page 170**
 *Under what two conditions might you end up with the bad comments shown in the previous code?*
 
+1. Writing comments as you code. You write a loop and then put a comment on top of it. After many rounds of revisions, you’ve either spent a huge amount of time updating comments, or you’ve given up and the comment is disconnected from the final code.
+
+2. Writing all the code without comments. Then, when you’re finished with revisions, you go back and insert the bare minimum number of comments. 
+
+In both of these scenarios, the problem is that you’re trying to write comments to explain what the code does and not what it should do. When you tweak the code, you change what it does, so you need to update the comment. That creates a lot of work and that makes programmers reluctant to write comments.
+
 **Problem 7.4, Stephens page 170**
 *How could you apply offensive programming to the modified code you wrote for exercise 3? [Yes, I know that problem wasn't assigned, but if you take a look at it you can still do this exercise.]*
 
+You could add a line of code before the absolute value statements to check and make sure a and b are integer values. If they are not, throw an error message. 
+
+This is offensive programming becasue if they are not numbers, the code will make a big deal out of it, throwing an error. 
+
 **Problem 7.5, Stephens page 170**
 *Should you add error handling to the modified code you wrote for Exercise 4?*
+
+Yes! With the error message, this can help to return a more specific response message. You can return something like "all inputs must be integers". This way, if the user enters something like "dog", they will know that the program is meant to recieve number inputs. 
 
 **Problem 7.7, Stephens page 170**
 *Using top-down design, write the highest level of instructions that you would use to tell someone how to drive your car to the nearest supermarket. (Keep it at a very high level.) List any assumptions you make.*
