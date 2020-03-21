@@ -21,7 +21,6 @@
                b = remainder;
             };
          }
-     '''
       
 **Problem 7.2, Stephens page 170**
 *Under what two conditions might you end up with the bad comments shown in the previous code?
@@ -78,7 +77,6 @@
                b = remainder;
             };
          }
-''' 
 
 The AreRelativelyPrime method checks whether either value is 0. Only -1 and 1 are relatively prime to 0, so if a or b is 0, the method returns true only if the other value is -1 or 1.
 
