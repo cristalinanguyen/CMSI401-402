@@ -54,13 +54,13 @@ Yes! With the error message, this can help to return a more specific response me
          - sit 
          - put on seatbelt 
          
-         *assuming they know how to adjust mirrors*
+*assuming they know how to adjust mirrors*
          
 - adjust mirrors and seat if necessary 
          
 *assuming they have a smartphone and know how to use maps*
        
-         - open smartphone
+- open smartphone
          - open maps app
 - Use google maps to search for the nearest super market 
          - type supermarket into search bar 
@@ -98,8 +98,70 @@ Yes! With the error message, this can help to return a more specific response me
 
 *Suppose you've written an efficient IsRelativelyPrime method that takes two integers between -1 million and 1 million as parameters and returns true if they are relatively prime. Use either your favorite programming language or pseudocode (English that sort of looks like code) to write a method that tests the IsRelativelyPrime method. (Hint: You may find it useful to write another method that also tests two integers to see if they are relatively prime.)*
 
+Pseudocode method to see if the two integers are relatively prime:
+
+testRelativelyPrime(integer1, integer2) {
+  //make positive ints 
+  integer1 = absoluteValue(integer1);
+  integer2 = absoluteValue(integer2);
+
+  //check if either ints are equal to 1
+  if ((integer1 == 1) or (integer2 == 1)) {
+    return true;
+  }
+
+  //check if either int is 0 and return false
+  if ((integer1 == 0) or (integer2 == 0)) {
+    return false;
+  }
+
+  //look for factors
+  smallerInt = minimum(int1, int2);
+  loop through ints, start at 2 {
+    if ((int1 % 2 == 0) && (b % 2 == 0)) {
+      return false;
+    }
+    return true;
+  }
+}
+
+Use this above pseudocode method I have written to test the original method IsRelativelyPrime:
+
+for every 1,000 tries, pick int1 and int2 randomly then {
+  Assert IsRelativelyPrime(int1, int2) = testRelativelyPrime(int1, int2)
+}
+
+for every 1,000, pick int1 randomly then {
+  Assert IsRelativelyPrime(int1, int1) = testRelativelyPrime(int1, int1)
+}
+
+for every 1,000, pick int1 randomly then {
+  Assert IsRelativelyPrime(int1, 1) relatively prime
+  Assert IsRelativelyPrime(int1, -1) relatively prime
+  Assert IsRelativelyPrime(1, int1) relatively prime
+  Assert IsRelativelyPrime(-1, int1) relatively prime
+}
+
+for every 1,000, pick int1 randomly (not 1 or -1) then {
+  Assert IsRelativelyPrime(int1, 0) relatively prime
+  Assert IsRelativelyPrime(0, int1) relatively prime
+}
+
+for every 1,000, pick int1 randomly {
+  Assert IsRelativelyPrime(int1, -1,000,000) = testRelativelyPrime(int1, -1,000,000)
+  Assert IsRelativelyPrime(int1, -1,000,000) = testRelativelyPrime(int1, 1,000,000)
+  Assert IsRelativelyPrime(-1,000,000, int1) = testRelativelyPrime(-1,000,000, int1)
+  Assert IsRelativelyPrime(1,000,000, int1) = testRelativelyPrime(1,000,000, int1)
+  Assert IsRelativelyPrime(-1,000,000, -1,000,000) = testRelativelyPrime(-1,000,000, -1,000,000)
+  Assert IsRelativelyPrime(1,000,000, 1,000,000) = testRelativelyPrime(1,000,000, 1,000,000)
+  Assert IsRelativelyPrime(-1,000,000, 1,000,000) = testRelativelyPrime(-1,000,000, 1,000,000)
+  Assert IsRelativelyPrime(1,000,000, -1,000,000) = testRelativelyPrime(1,000,000, -1,000,000)
+}
+
 **Problem 8.3, Stephens page 199**
 *What testing techniques did you use to write the test method in Exercise 1? (Exhaustive, black-box, white-box, or gray-box?) Which ones could you use and under what circumstances? [Please justify your answer with a short paragraph to explain.]*
+
+I used black-box testing because we are not sure how the method, IsRelativelyPrime, works. White-box and gray-box testing would have worked if we knew how the IsRelativelyPrime method works. Exhaustive testing would not have worked well because we have such a large range of values that we are testing. 
 
 **Problem 8.5, Stephens page 199 - 200**
 *the following code shows a C# version of the AreRelativelyPrime method and the GCD method it calls.*
@@ -137,18 +199,31 @@ Yes! With the error message, this can help to return a more specific response me
             };
          }
 
-*The AreRelativelyPrime method checks whether either value is 0. Only -1 and 1 are relatively prime to 0, so if a or b is 0, the method returns true only if the other value is -1 or 1.
+*The AreRelativelyPrime method checks whether either value is 0. Only -1 and 1 are relatively prime to 0, so if a or b is 0, the method returns true only if the other value is -1 or 1.*
 
-The code then calls the GCD method to get the greatest common divisor of a and b. If the greatest common divisor is -1 or 1, the values are relatively prime, so the method returns true. Otherwise, the method returns false.
+*The code then calls the GCD method to get the greatest common divisor of a and b. If the greatest common divisor is -1 or 1, the values are relatively prime, so the method returns true. Otherwise, the method returns false.*
 
-Now that you know how the method works, implement it and your testing code in your favorite programming language. Did you find any bugs in your initial version of the method or in the testing code? Did you get any benefit from the testing code?
+*Now that you know how the method works, implement it and your testing code in your favorite programming language. Did you find any bugs in your initial version of the method or in the testing code? Did you get any benefit from the testing code?*
+
+Now that I have seen how this method works, I realize that restrictions for the values of the two integers need to be implemented in IsRelativelyPrime because the method wasn't able to handle the max and min values of the integers.
 
 **Problem 8.9, Stephens page 200**
-*Exhaustive testing actually falls into one ot the categoris black-box, white-box, or gray-box. Which one is it and why?*
+*Exhaustive testing actually falls into one of the categoris black-box, white-box, or gray-box. Which one is it and why?*
+
+Exhaustive tests falls into the black-box testing category. It does not rely on knowledge of what is happening inside the method they are testing. 
 
 **Problem 8.11, Stephens page 200**
 *Suppose you have three testers: Alice, Bob, and Carmen. You assign numbers to the bugs so the testers find the sets of bugs {1, 2, 3, 4, 5}, {2, 5, 6, 7}, and {1, 2, 8, 9, 10}. How can you use the Lincoln index to estimate the total number of bugs? How many bugs are still at large?*
 
+L = (E * E * E) / S
+
+(5*4*5)/3=33 bugs 
+
+This is a rough estimate using the Lincoln index which multiplies each person's number of bugs found and divides it by the number of bugs in common. 
+
+
+
 **Problem 8.12, Stephens page 200**
 *What happens to the Lincoln estimate if the two testers don't find any bugs in common? What does it mean? Can you get a "lower bound" estimate of the number of bugs?*
 
+If the two testers don't find any bugs in common, then the Lincoln index would be divided by 0. This is an infinite result or an error. So you wouldn't know how many bugs there are. You can get a "lower bound" for the number of bugs by pretending the two testers found one bug in common and therefore dividing by 1.
