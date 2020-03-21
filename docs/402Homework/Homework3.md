@@ -41,6 +41,51 @@ Yes! With the error message, this can help to return a more specific response me
 **Problem 7.7, Stephens page 170**
 *Using top-down design, write the highest level of instructions that you would use to tell someone how to drive your car to the nearest supermarket. (Keep it at a very high level.) List any assumptions you make.*
 
+*assuming the person is at my house*
+- Grab my keys from the kitchen 
+         - Open thr front door
+         - Close the front door 
+- Go outside to find my car parked 
+         - press the unlock button on the key
+- Unlock the car
+         - pull the door handle to open the drivers door
+- Get in the drivers seat
+         - sit 
+         - put on seatbelt 
+         *assuming they know how to adjust mirrors*
+         - adjust mirrors and seat if necessary 
+*assuming they have a smartphone and know how to use maps*
+         - open smartphone
+         - open maps app
+- Use google maps to search for the nearest super market 
+         - type supermarket into search bar 
+         - click the button for the nearest result 
+         - see the directions on phone 
+- turn on the car
+         - have keys with you in car
+         - put foot on break
+         - release parking break 
+         - press the start button located to the side of the steering wheel 
+- put the car in drive 
+         - use middle handle to move its placement to D
+*assuming they have their drivers license and know how to drive...* 
+- use driving skills to follow route on phone to supermarket
+- pull into parking lot
+- Pull into spot in parking lot
+         - use break to stop 
+- Put the car in park 
+         - move handle to P
+         - Pull parking break 
+- turn the car off 
+         - pur foot on break 
+         - press start button to turn off
+         - take off seatbelt 
+         - pull door handle to open door 
+         - get out of car
+         - close door
+         - press lock button on key to lock car
+- get out of the car and start shopping :)
+
 **Problem 8.1, Stephens page 199**
 *Two integers are relatively prime (or coprime) if they have no common factors other than 1. For example, 21 = 3 X 7 and 35 = 5 X 7 are not relatively prime because they are both divisible by 7. By definition -1 and 1 are relatively prime to every integer, and they are the only numbers relatively prime to 0.*
 
