@@ -19,7 +19,7 @@
          
  -----------
       
-###**Problem 7.2, Stephens page 170**
+### **Problem 7.2, Stephens page 170**
 **Under what two conditions might you end up with the bad comments shown in the previous code?**
 
 1. Writing comments as you code. You write a loop and then put a comment on top of it. After many rounds of revisions, you’ve either spent a huge amount of time updating comments, or you’ve given up and the comment is disconnected from the final code.
@@ -30,7 +30,7 @@ In both of these scenarios, the problem is that you’re trying to write comment
 
 ---------
 
-###**Problem 7.4, Stephens page 170**
+### **Problem 7.4, Stephens page 170**
 **How could you apply offensive programming to the modified code you wrote for exercise 3? [Yes, I know that problem wasn't assigned, but if you take a look at it you can still do this exercise.]**
 
 You could add a line of code before the absolute value statements to check and make sure a and b are integer values. If they are not, throw an error message. 
@@ -39,14 +39,14 @@ This is offensive programming becasue if they are not numbers, the code will mak
 
 ----------
 
-###**Problem 7.5, Stephens page 170**
+### **Problem 7.5, Stephens page 170**
 **Should you add error handling to the modified code you wrote for Exercise 4?**
 
 Yes! With the error message, this can help to return a more specific response message. You can return something like "all inputs must be integers". This way, if the user enters something like "dog", they will know that the program is meant to recieve number inputs. 
 
 --------------
 
-###**Problem 7.7, Stephens page 170**
+### **Problem 7.7, Stephens page 170**
 **Using top-down design, write the highest level of instructions that you would use to tell someone how to drive your car to the nearest supermarket. (Keep it at a very high level.) List any assumptions you make.**
 
 *assuming the person is at my house*
@@ -103,7 +103,7 @@ Yes! With the error message, this can help to return a more specific response me
 
 ---------------
 
-###**Problem 8.1, Stephens page 199**
+### **Problem 8.1, Stephens page 199**
 **Two integers are relatively prime (or coprime) if they have no common factors other than 1. For example, 21 = 3 X 7 and 35 = 5 X 7 are not relatively prime because they are both divisible by 7. By definition -1 and 1 are relatively prime to every integer, and they are the only numbers relatively prime to 0.**
 
 **Suppose you've written an efficient IsRelativelyPrime method that takes two integers between -1 million and 1 million as parameters and returns true if they are relatively prime. Use either your favorite programming language or pseudocode (English that sort of looks like code) to write a method that tests the IsRelativelyPrime method. (Hint: You may find it useful to write another method that also tests two integers to see if they are relatively prime.)**
@@ -173,14 +173,14 @@ for every 1,000, pick int1 randomly {
 ```
 ------------------
 
-###**Problem 8.3, Stephens page 199**
+### **Problem 8.3, Stephens page 199**
 **What testing techniques did you use to write the test method in Exercise 1? (Exhaustive, black-box, white-box, or gray-box?) Which ones could you use and under what circumstances? [Please justify your answer with a short paragraph to explain.]**
 
 I used black-box testing because we are not sure how the method, IsRelativelyPrime, works. White-box and gray-box testing would have worked if we knew how the IsRelativelyPrime method works. Exhaustive testing would not have worked well because we have such a large range of values that we are testing. 
 
 ------------
 
-###**Problem 8.5, Stephens page 199 - 200**
+### **Problem 8.5, Stephens page 199 - 200**
 **the following code shows a C# version of the AreRelativelyPrime method and the GCD method it calls.**
 
 
@@ -222,14 +222,14 @@ Now that I have seen how this method works, I realize that restrictions for the 
 
 --------------
 
-###**Problem 8.9, Stephens page 200**
+### **Problem 8.9, Stephens page 200**
 **Exhaustive testing actually falls into one of the categoris black-box, white-box, or gray-box. Which one is it and why?**
 
 Exhaustive tests falls into the black-box testing category. It does not rely on knowledge of what is happening inside the method they are testing. 
 
 -------------
-
-###**Problem 8.11, Stephens page 200**
+ 
+### **Problem 8.11, Stephens page 200**
 **Suppose you have three testers: Alice, Bob, and Carmen. You assign numbers to the bugs so the testers find the sets of bugs {1, 2, 3, 4, 5}, {2, 5, 6, 7}, and {1, 2, 8, 9, 10}. How can you use the Lincoln index to estimate the total number of bugs? How many bugs are still at large?**
 
 L = (E * E * E) / S
@@ -240,7 +240,7 @@ This is a rough estimate using the Lincoln index which multiplies each person's 
 
 --------------
 
-###**Problem 8.12, Stephens page 200**
+### **Problem 8.12, Stephens page 200**
 **What happens to the Lincoln estimate if the two testers don't find any bugs in common? What does it mean? Can you get a "lower bound" estimate of the number of bugs?**
 
 If the two testers don't find any bugs in common, then the Lincoln index would be divided by 0. This is an infinite result or an error. So you wouldn't know how many bugs there are. You can get a "lower bound" for the number of bugs by pretending the two testers found one bug in common and therefore dividing by 1.
