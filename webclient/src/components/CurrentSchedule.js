@@ -20,7 +20,7 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 
-import { mockAlgorithmOutput } from '../api';
+import { getResidents } from '../api';
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -57,12 +57,18 @@ export default class Residents extends Component {
               backgroundColor: '#3876AE',
             }
         },
-        { title: 'First Name', field: 'name', headerStyle: {
+        { title: 'Week OFF', field: 'off', headerStyle: {
               backgroundColor: '#658CAE',
-            }},
-        { title: 'Last Name', field: 'last', headerStyle: {
+            }
+        },
+        { title: 'First Name', field: 'first_name', headerStyle: {
               backgroundColor: '#658CAE',
-            }},
+            }
+        },
+        { title: 'Last Name', field: 'last_name', headerStyle: {
+              backgroundColor: '#658CAE',
+            }
+        },
       ],
       
       data: []      
@@ -70,7 +76,7 @@ export default class Residents extends Component {
   }
 
   componentDidMount() {
-    mockAlgorithmOutput().then(residents => {
+    getResidents().then(residents => {
         this.setState({ data: residents })
     })
   }

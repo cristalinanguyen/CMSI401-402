@@ -43,6 +43,11 @@ class Dao:
       res_dict['first_name'] = r[1]
       res_dict['last_name'] = r[2]
       res_dict['year'] = r[3]
+      res_dict['off'] = r[4]
+      res_dict['block'] = r[5]
+      res_dict['ward'] = r[6]
+      res_dict['shift'] = r[7]
+      res_dict['name'] = r[1] + r[2]
       table_list.append(res_dict.copy())
     return table_list
 
