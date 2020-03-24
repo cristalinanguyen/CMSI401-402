@@ -48,17 +48,15 @@ export default class Residents extends Component {
     this.state = {
       columns: [
         {
-          title: 'Resident ID', field: 'ID',
+          title: 'First Name', field: 'first_name',
           editComponent: props => (
             <input
-              type="numeric"
               value={props.value}
               onChange={e => props.onChange(e.target.value)}
             />
           )
         },
-        { title: 'First Name', field: 'name', },
-        { title: 'Last Name', field: 'last' },
+        { title: 'Last Name', field: 'last_name' },
         { title: 'Year', field: 'year', type: 'numeric' },
       ],
 

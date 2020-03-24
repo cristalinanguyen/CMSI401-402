@@ -2,7 +2,6 @@ import mysql.connector
 from mysql.connector import errorcode
 # from __future__ import absolute_import, print_function
 
-
 class Dao:
 
   def __init__(self, user, password, host, database):
@@ -14,9 +13,9 @@ class Dao:
 
   def connect(self):
     try:
-      db = mysql.connector.connect(user='schedule', password='fuzzwuzhere',
-                                  host='schedule.ctsb7iugp6xk.us-east-1.rds.amazonaws.com',
-                                  database='schedule')
+      db = mysql.connector.connect(user='stproch', password='fuzzwuzhere',
+                                  host='keckmysql-rds.lmucs.com',
+                                  database='stproch')
     except mysql.connector.Error as err:
       if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
         print("Something is wrong with your user name or password")
@@ -40,9 +39,9 @@ class Dao:
     result = mycursor.fetchall()
 
     for r in result:
-      res_dict['ID'] = r[0]
-      res_dict['name'] = r[1]
-      res_dict['last'] = r[2]
+      res_dict['id'] = r[0]
+      res_dict['first_name'] = r[1]
+      res_dict['last_name'] = r[2]
       res_dict['year'] = r[3]
       table_list.append(res_dict.copy())
     return table_list
@@ -51,30 +50,15 @@ class Dao:
   def select_one(self, item, table, conditions):
     db = self.connect()
     mycursor = db.cursor()
-    # query = "SELECT %s FROM %s WHERE %s"
-    # val = (item, table, conditions)
-    query = "SELECT "
-    query += item
-    query += " FROM "
-    query += table
-    query += " WHERE "
-    query += conditions
-    # print (query)
+    query = ( "SELECT %s FROM %s WHERE %s" % (item, table, conditions) )
     mycursor.execute(query)
     result = mycursor.fetchall()
-
     return result
 
   def update(self, table, columns, conditions):
     db = self.connect()
     mycursor = db.cursor()
-    query = "UPDATE "
-    query += table
-    query += " SET "
-    query += columns
-    query += " WHERE "
-    query += conditions
-    # print ('QUERY: ', query)
+    query = ( "UPDATE %s SET %s WHERE %s " % (table, columns, conditions) )
     mycursor.execute(query)
     db.commit()
 
@@ -83,44 +67,31 @@ class Dao:
   def insert(self, table, columns, values):
     db = self.connect()
     mycursor = db.cursor()
-    query = "INSERT INTO "
-    query += table 
-    query += "("
-    query += columns
-    query += ") VALUES("
-    query += values
-    query += ")"
-
+    query = ( "INSERT INTO %s ( %s ) VALUES(%s) " % (table, columns, values) )
     mycursor.execute(query)
     db.commit()
-
     print(mycursor.rowcount, "record(s) affected")
 
   def delete(self, table, condition):
     db = self.connect()
     mycursor = db.cursor()
-
-    query = "DELETE FROM "
-    query += table
-    query += " WHERE "
-    query += condition
-
+    query = ( "DELETE FROM %s WHERE %s " % (table, condition) )
     mycursor.execute(query)
     db.commit()
     print(mycursor.rowcount, "record(s) affected")
 
 
 
-
 def main():
   dao = Dao('schedule','fuzzwuzhere', 'schedule.ctsb7iugp6xk.us-east-1.rds.amazonaws.com', 'schedule')
-  output = dao.select_all('employees')
-  select_o = dao.select_one('employee_first_name, employee_last_name', 'employees', 'employee_id = 1')
-  dao.update('employees', 'year = 2', 'employee_id = 5')
-  dao.insert('employees', 'employee_first_name, employee_last_name, year, office_id', '\'BJ\', \'Johnson\', 2, 1')
-  dao.delete('employees', 'employee_id = 13')
-  print (output)
-  print (select_o)
+  # output = dao.select_all('employees')
+  # select_o = dao.select_one('first_name, last_name', 'employees', 'employee_id = 1')
+  # dao.update('employees', 'year = 1', 'employee_id = 7')
+  # dao.insert('employees', 'first_name, last_name, year', '\'Andrew\', \'Forney\', 1')
+  # dao.delete('employees', 'first_name = \'Andrew\' ')
+  # print (output)
+  # print (select_o)
+
 
 
 if __name__ == "__main__":
