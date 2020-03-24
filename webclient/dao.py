@@ -47,7 +47,7 @@ class Dao:
       res_dict['block'] = r[5]
       res_dict['ward'] = r[6]
       res_dict['shift'] = r[7]
-      res_dict['name'] = r[1] + r[2]
+      res_dict['name'] = r[1] + ' ' + r[2]
       table_list.append(res_dict.copy())
     return table_list
 
