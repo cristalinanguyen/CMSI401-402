@@ -15,17 +15,17 @@ app.debug = True
 def residents():
   dao = Dao('stproch','fuzzwuzhere', 'keckmysql-rds.lmucs.com', 'stproch')
   output = dao.select_all('employees')
-
   # return render_template('index.html', names = output)
   # for i in output:
   #   return i
   result = jsonify(output)
+
   return result
 
 @app.route("/current-schedule")
 def schedule():
   dao = Dao('stproch','fuzzwuzhere', 'keckmysql-rds.lmucs.com', 'stproch')
-  output = dao.select_all('block_schedule')
+  output = dao.select_all('employees')
 
   # return render_template('index.html', names = output)
   # for i in output:
