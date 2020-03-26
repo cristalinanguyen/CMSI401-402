@@ -3,7 +3,6 @@ import '../css/App.css';
 import Header from './Header';
 import MaterialTable from 'material-table';
 import { forwardRef } from 'react';
-
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowUpward from '@material-ui/icons/ArrowUpward';
 import Check from '@material-ui/icons/Check';
@@ -19,8 +18,7 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
-
-import { getResidents } from '../api';
+import { getResidents } from '../api'; 
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -42,36 +40,195 @@ const tableIcons = {
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
+
 export default class Residents extends Component {
+  
+  
+  
   constructor(props) {
     super(props);
     this.state = {
+
       columns: [
-        { title: 'Block', field: 'block', type: 'numeric' 
+          
+
+        { title: 'Year', field: 'year', type: 'numeric', 
       
-        ,cellStyle: {
-              backgroundColor: '#87ADCF',
-              color: '#FFF'
-            },
-            headerStyle: {
-              backgroundColor: '#3876AE',
-            }
+          cellStyle: {
+              backgroundColor: '#FFF',
+              color: '#28547A'
+          },
+          headerStyle: {
+            backgroundColor: '#28547A',
+            color: '#FFF'
+          }
+          
         },
-        { title: 'Week OFF', field: 'off', headerStyle: {
-              backgroundColor: '#658CAE',
-            }
+        { title: 'Resident', field: 'name',
+      
+          
+          cellStyle: {
+              backgroundColor: '#FFF',
+              color: '#28547A'
+          },
+          headerStyle: {
+            backgroundColor: '#28547A',
+            color: '#FFF'
+          }
         },
-        { title: 'First Name', field: 'first_name', headerStyle: {
-              backgroundColor: '#658CAE',
-            }
+        { title: 'Week 1', field: 'shift1',
+          cellStyle: value => {
+            if (value.substring(0,1) === "C") {
+              return {backgroundColor: '#FFDDE4', color: '#FF7260'}
+            } else if (value.substring(0,1) === "B") {
+              return {backgroundColor: '#D9F0FF', color: '#5F9FFF'}
+            } else if (value.substring(0,1) === "D") {
+              return {backgroundColor: '#CBFBC5', color: '#15A452'}
+            } else if (value.substring(0,1) === "F") {
+              return {backgroundColor: '#FEECC7', color: '#939000'}
+            } 
+            return{}
+          },
+          headerStyle: {
+            backgroundColor: '#658CAE',
+            color: '#FFF'
+          }
+          
+        }
+        ,
+        { title: 'Week 2', field: 'shift2', 
+          cellStyle: value => {
+            if (value.substring(0,1) === "C") {
+              return {backgroundColor: '#FFDDE4', color: '#FF7260'}
+            } else if (value.substring(0,1) === "B") {
+              return {backgroundColor: '#D9F0FF', color: '#5F9FFF'}
+            } else if (value.substring(0,1) === "D") {
+              return {backgroundColor: '#CBFBC5', color: '#15A452'}
+            } else if (value.substring(0,1) === "F") {
+              return {backgroundColor: '#FEECC7', color: '#939000'}
+            } 
+            return{}
+          },
+          headerStyle: {
+            backgroundColor: '#658CAE',
+            color: '#FFF'
+          }
         },
-        { title: 'Last Name', field: 'last_name', headerStyle: {
-              backgroundColor: '#658CAE',
-            }
+        { title: 'Week 3', field: 'shift1', 
+          cellStyle: value => {
+            if (value.substring(0,1) === "C") {
+              return {backgroundColor: '#FFDDE4', color: '#FF7260'}
+            } else if (value.substring(0,1) === "B") {
+              return {backgroundColor: '#D9F0FF', color: '#5F9FFF'}
+            } else if (value.substring(0,1) === "D") {
+              return {backgroundColor: '#CBFBC5', color: '#15A452'}
+            } else if (value.substring(0,1) === "F") {
+              return {backgroundColor: '#FEECC7', color: '#939000'}
+            } 
+            return{}
+          },
+          headerStyle: {
+            backgroundColor: '#658CAE',
+            color: '#FFF'
+          }
         },
+        { title: 'Week 4', field: 'shift4', 
+          cellStyle: value => {
+            if (value.substring(0,1) === "C") {
+              return {backgroundColor: '#FFDDE4', color: '#FF7260'}
+            } else if (value.substring(0,1) === "B") {
+              return {backgroundColor: '#D9F0FF', color: '#5F9FFF'}
+            } else if (value.substring(0,1) === "D") {
+              return {backgroundColor: '#CBFBC5', color: '#15A452'}
+            } else if (value.substring(0,1) === "F") {
+              return {backgroundColor: '#FEECC7', color: '#939000'}
+            } 
+            return{}
+          },
+          headerStyle: {
+            backgroundColor: '#658CAE',
+            color: '#FFF'
+          }
+        },
+        { title: 'Week 5', field: 'shift5', 
+          cellStyle: value => {
+            if (value.substring(0,1) === "C") {
+              return {backgroundColor: '#FFDDE4', color: '#FF7260'}
+            } else if (value.substring(0,1) === "B") {
+              return {backgroundColor: '#D9F0FF', color: '#5F9FFF'}
+            } else if (value.substring(0,1) === "D") {
+              return {backgroundColor: '#CBFBC5', color: '#15A452'}
+            } else if (value.substring(0,1) === "F") {
+              return {backgroundColor: '#FEECC7', color: '#939000'}
+            } 
+            return{}
+          },
+          headerStyle: {
+            backgroundColor: '#658CAE',
+            color: '#FFF'
+          }
+        },
+        { title: 'Week 6', field: 'shift6', 
+          cellStyle: value => {
+            if (value.substring(0,1) === "C") {
+              return {backgroundColor: '#FFDDE4', color: '#FF7260'}
+            } else if (value.substring(0,1) === "B") {
+              return {backgroundColor: '#D9F0FF', color: '#5F9FFF'}
+            } else if (value.substring(0,1) === "D") {
+              return {backgroundColor: '#CBFBC5', color: '#15A452'}
+            } else if (value.substring(0,1) === "F") {
+              return {backgroundColor: '#FEECC7', color: '#939000'}
+            } 
+            return{}
+          },
+          headerStyle: {
+            backgroundColor: '#658CAE',
+            color: '#FFF'
+          }
+        },
+        { title: 'Week 6', field: 'shift7',
+          cellStyle: value => {
+            if (value.substring(0,1) === "C") {
+              return {backgroundColor: '#FFDDE4', color: '#FF7260'}
+            } else if (value.substring(0,1) === "B") {
+              return {backgroundColor: '#D9F0FF', color: '#5F9FFF'}
+            } else if (value.substring(0,1) === "D") {
+              return {backgroundColor: '#CBFBC5', color: '#15A452'}
+            } else if (value.substring(0,1) === "F") {
+              return {backgroundColor: '#FEECC7', color: '#939000'}
+            } 
+            return{}
+          },
+          headerStyle: {
+            backgroundColor: '#658CAE',
+            color: '#FFF'
+          }
+        },
+        { title: 'Week 8', field: 'shift8',
+          cellStyle: value => {
+            if (value.substring(0,1) === "C") {
+              return {backgroundColor: '#FFDDE4', color: '#FF7260'}
+            } else if (value.substring(0,1) === "B") {
+              return {backgroundColor: '#D9F0FF', color: '#5F9FFF'}
+            } else if (value.substring(0,1) === "D") {
+              return {backgroundColor: '#CBFBC5', color: '#15A452'}
+            } else if (value.substring(0,1) === "F") {
+              return {backgroundColor: '#FEECC7', color: '#939000'}
+            } 
+            return{}
+          },
+          headerStyle: {
+            backgroundColor: '#658CAE',
+            color: '#FFF'
+          }
+        }
+        
+
       ],
       
-      data: []      
+      data: [
+      ],
+
     }
   }
 
@@ -81,35 +238,43 @@ export default class Residents extends Component {
     })
   }
 
-
   render() {
+    
+
+
     return (
+
+          
+
     <div className="App">
         <Header>
-            <h1>Residents Page</h1>
+            <h1>Residents Page </h1>
         </Header>
-
         <MaterialTable
-            title= "Block Schedule"
+
+            title= "Full Schedule"
             options={{
               grouping: true
             }}
             icons={tableIcons}
             columns={this.state.columns}
+            cellStyle={this.state.cellStyle}
             data={this.state.data}
 
             options={{
-                pageSize: 12,
-                pageSizeOptions: [12, 24, 48],
-                headerStyle: {
-              backgroundColor: '#658CAE',
-              color: '#FFF'
-          }
+              pageSize: 24,
+              pageSizeOptions: [],
+              headerStyle: {
+                backgroundColor: '#658CAE',
+                color: '#FFF'
+              },
+              exportButton: true,
+              
             }}
-
         />
         
     </div>
     )
   }
 }
+
