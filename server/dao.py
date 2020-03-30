@@ -40,6 +40,7 @@ class Dao:
 
     for r in result:
       res_dict['id'] = r[0]
+      res_dict['name'] = r[1] + ' ' + r[2]
       res_dict['first_name'] = r[1]
       res_dict['last_name'] = r[2]
       res_dict['year'] = r[3]
@@ -47,17 +48,17 @@ class Dao:
       res_dict['block'] = r[5]
       res_dict['ward'] = r[6]
       res_dict['shift'] = r[7]
-      res_dict['shift_w1'] = r[7][2:5]
-      res_dict['shift_w2'] = r[7][9:12]
-      res_dict['shift_w3'] = r[7][16:19]
-      res_dict['shift_w4'] = r[7][23:26]
-      res_dict['shift_w5'] = r[7][30:33]
-      res_dict['shift_w6'] = r[7][37:40]
-      res_dict['shift_w7'] = r[7][44:47]
-      res_dict['shift_w8'] = r[7][51:54]
-      res_dict['name'] = r[1] + ' ' + r[2]
+      res_dict['shift1'] = r[6] + " / " + r[7][2:5]
+      res_dict['shift2'] = r[6] + " / " + r[7][9:12]
+      res_dict['shift3'] = r[6] + " / " + r[7][16:19]
+      res_dict['shift4'] = r[6] + " / " + r[7][23:26]
+      res_dict['shift5'] = r[6] + " / " + r[7][30:33]
+      res_dict['shift6'] = r[6] + " / " + r[7][37:40]
+      res_dict['shift7'] = r[6] + " / " + r[7][44:47]
+      res_dict['shift8'] = r[6] + " / " + r[7][51:54]
       table_list.append(res_dict.copy())
     return table_list
+
 
   def select_one(self, item, table, conditions):
     db = self.connect()
