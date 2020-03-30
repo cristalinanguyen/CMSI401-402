@@ -20,7 +20,7 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 
-import { getResidents, addResidents } from '../api';
+import { getResidents } from '../api';
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -70,13 +70,13 @@ export default class Residents extends Component {
     })
   }
 
-  componentDidUpdate() {
-      addResidents().then(newData => {
-          newData = []
-          // add new data to data
-          this.setState({ data : newData })
-      })
-  }
+  // componentDidUpdate() {
+  //     addResidents().then(newData => {
+  //         newData = []
+  //         // add new data to data
+  //         this.setState({ data : newData })
+  //     })
+  // }
 
   render() {
     return (
@@ -96,9 +96,9 @@ export default class Residents extends Component {
                 pageSizeOptions: [12, 24, 48]
             }}
 
-            editable={{
-            onRowAdd: newData =>
-                addResidents(newData)
+            // editable={{
+            // onRowAdd: newData =>
+            //     addResidents(newData)
 
             // onRowUpdate: (newData, oldData) =>
             //     new Promise((resolve, reject) => {
@@ -124,7 +124,7 @@ export default class Residents extends Component {
             //         resolve()
             //     }, 1000)
             //     }),
-            }}
+            // }}
         />
     </div>
     )
