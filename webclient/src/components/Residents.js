@@ -4,11 +4,7 @@ import Header from './Header';
 import MaterialTable from 'material-table';
 import { forwardRef } from 'react';
 
-import AddBox from '@material-ui/icons/AddBimport React, { Component } from 'react';
 import '../css/App.css';
-import Header from './Header';
-import MaterialTable from 'material-table';
-import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowUpward from '@material-ui/icons/ArrowUpward';
 import Check from '@material-ui/icons/Check';

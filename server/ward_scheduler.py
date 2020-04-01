@@ -26,6 +26,8 @@ class Schedule:
             print ( ("Name: %s  |  Ward: %s  |  Off: %s  " % (s.first_name, s.ward, s.off) ).center(40,' ') )
             # print (s.ward)
             x = x + 1
+        sy_list[len(sy_list) - 1].ward = 'B'
+        print(sy_list[len(sy_list) - 1].ward) 
 
     def make_poss_list(self, ward_list, sy_list, fy_list):
         for f in fy_list:
