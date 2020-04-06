@@ -1,0 +1,35 @@
+
+
+
+
+Evaluation for homework #3
+CMSI 402 ~~ Spring 2020
+====================================
+
+7-1  Fix comments for Euclid's Algorithm           1/1 pt.
+7-2  Two conditions for bad comments               2/2 pts.
+7-4  Apply offensive programming ex.3              1/1 pt.
+7-5  Should you add error handling?                0.5/1 pt.
+         error handling should be done in the caller
+
+7-7  Top-down drive to market / assumptions        3/3 pts.
+8-1  Implementation of IsRelativelyPrime           5/5 pts.
+8-3  Which testing methods used in 8-1 [gimme]     2/2 pt.
+8-5  Implementation of AreRelativelyPrime          5/5 pts.
+8-9  Exhaustive is black/white/gray & why          2/2 pts.
+8-11 Lincoln estimate / number bugs                1/2 pt.
+         not quite.....
+         Alice/Bob: (5 * 4) / 2 = 10
+         Alice/Carmen: (5 * 5) / 2 = 12.5
+         Bob/Carmen: (4 * 5) / 1 = 20
+         average: (10 + 12.5 + 20) / 3 = 14.16
+8-12 Lincoln estimate no common bugs               1/1 pt.
+
+
+Total possible score: 25 points
+
+Your score: 23.5 out of 25 = 94.0% which is an A
+
+
+Good job!!
+
