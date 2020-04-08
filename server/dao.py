@@ -73,14 +73,12 @@ class Dao:
       if first_year_off > 4:
         second_year1_B_first = False
     elif second_year1_off == second_year2_off:
-      print(second_year_off_same, "if check")
       second_year_off_same = True
     
     # go through the results again in a loop
     for r in result:
       if r[6] == "B" and r[3] == 2:
         if ((r[4] == second_year1_off and second_year1_B_first == True) or (r[4] == second_year2_off and second_year1_B_first == False)) and (second_year_off_same == False):
-          print(second_year_off_same, "loop")
           res_dict['id'] = r[0]
           res_dict['name'] = r[1] + ' ' + r[2]
           res_dict['first_name'] = r[1]
