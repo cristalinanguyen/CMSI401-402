@@ -45,7 +45,7 @@ const tableIcons = {
 };
 
 
-export default class Residents extends Component {
+export default class CurrentSchedule extends Component {
   constructor(props) {
     super(props);
     this.state = {
