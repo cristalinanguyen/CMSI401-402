@@ -14,10 +14,11 @@ import VideoLabelIcon from "@material-ui/icons/VideoLabel";
 import StepConnector from "@material-ui/core/StepConnector";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { fontFamily } from '@material-ui/system';
 
 const QontoConnector = withStyles({
   alternativeLabel: {
-    top: 10,
+    top: 48,
     left: "calc(-50% + 16px)",
     right: "calc(50% + 16px)"
   },
@@ -42,7 +43,7 @@ const useQontoStepIconStyles = makeStyles({
   root: {
     color: "#eaeaf0",
     display: "flex",
-    height: 22,
+    height: 100,
     alignItems: "center"
   },
   active: {
@@ -90,6 +91,7 @@ const useColorlibStepIconStyles = makeStyles({
     backgroundColor: "#ccc",
     zIndex: 1,
     color: "#fff",
+    // color: "#f4f8fc",
     width: 50,
     height: 50,
     display: "flex",
@@ -138,19 +140,24 @@ ColorlibStepIcon.propTypes = {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "100%"
+    marginTop: "10%",
+    marginRight: "10%",
+    marginLeft: "10%",
+    minHeight: "100%"
   },
   button: {
-    marginRight: theme.spacing(1)
+    marginTop: theme.spacing(3),
+    marginRight: theme.spacing(1),
+    marginBottom: "10%"
   },
   instructions: {
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(3),
     marginBottom: theme.spacing(1)
   }
 }));
 
 function getSteps() {
-  return ["Select campaign settings", "Create an ad group", "Create an ad"];
+  return ["STEP 1: Input schedule start date", "STEP 2: Create six month block schedule", "STEP 3: Create full schedule"];
 }
 
 function getStepContent(step) {
@@ -241,6 +248,7 @@ export default class CreateNewSchedule extends Component {
                 <Header>
                     <h1>CreateNewSchedule Page </h1>
                 </Header>
+                <p className="Create-schedule-title">Creating Your Schedule</p>
                 <CustomizedSteppers/>
             </div>
         )
