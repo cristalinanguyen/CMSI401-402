@@ -213,13 +213,38 @@ function getSteps() {
 }
 
 function getStepContent(step) {
+  let block = false;
+  let full = false;
+
+  const handleCreateBlock = () => {
+    if (block === false) {
+        console.log("Block Schedule Created");
+        block = true;
+    }
+  }
+
+  const handleCreateFull = () => {
+    if (full === false) {
+        console.log("Full Schedule Created");
+        full = true;
+    }
+  }
+
   switch (step) {
     case 0:
       return <MaterialUIPickers/>;
     case 1:
-      return "";
+      return <StyledButton
+                className="Create-schedule-button"
+                onClick={handleCreateBlock}>
+            Create Block Schedule
+            </StyledButton>;
     case 2:
-      return "";
+      return <StyledButton
+                className="Create-schedule-button"
+                onClick={handleCreateFull}>
+            Create Full Schedule
+            </StyledButton>;    
     default:
       return "";
   }
