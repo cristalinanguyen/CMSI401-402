@@ -27,38 +27,113 @@ class Dao:
     else:
       return db
 
-  def select_all(self, table):
-    db = self.connect()
-    mycursor = db.cursor()
+  def place_per_block(self, result):
     table_list = []
     res_dict = {}
-
-    query = ("SELECT * FROM ")
-    query += table
-    mycursor.execute(query)
-    result = mycursor.fetchall()
+    # variables for ward F assignment
+    first_year_off = 0
+    second_year1_off = 0
+    second_year2_off = 0
+    second_year1_B_first = True
+    second_year_off_same = False
 
     for r in result:
-      res_dict['id'] = r[0]
-      res_dict['name'] = r[1] + ' ' + r[2]
-      res_dict['first_name'] = r[1]
-      res_dict['last_name'] = r[2]
-      res_dict['year'] = r[3]
-      res_dict['off'] = r[4]
-      res_dict['block'] = r[5]
-      res_dict['ward'] = r[6]
-      res_dict['shift'] = r[7]
-      res_dict['shift1'] = r[6] + " / " + r[7][2:5]
-      res_dict['shift2'] = r[6] + " / " + r[7][9:12]
-      res_dict['shift3'] = r[6] + " / " + r[7][16:19]
-      res_dict['shift4'] = r[6] + " / " + r[7][23:26]
-      res_dict['shift5'] = r[6] + " / " + r[7][30:33]
-      res_dict['shift6'] = r[6] + " / " + r[7][37:40]
-      res_dict['shift7'] = r[6] + " / " + r[7][44:47]
-      res_dict['shift8'] = r[6] + " / " + r[7][51:54]
-      table_list.append(res_dict.copy())
+      if r[6] == "B" and r[3] == 1:
+        first_year_off = r[4]
+      if not (r[6] == "B" and r[3] == 2):
+        res_dict['id'] = r[0]
+        res_dict['name'] = r[1] + ' ' + r[2]
+        res_dict['first_name'] = r[1]
+        res_dict['last_name'] = r[2]
+        res_dict['year'] = r[3]
+        res_dict['off'] = r[4]
+        res_dict['block'] = r[5]
+        res_dict['ward'] = r[6]
+        res_dict['shift'] = r[7]
+        res_dict['shift1'] = r[6] + " / " + r[7][2:5]
+        res_dict['shift2'] = r[6] + " / " + r[7][9:12]
+        res_dict['shift3'] = r[6] + " / " + r[7][16:19]
+        res_dict['shift4'] = r[6] + " / " + r[7][23:26]
+        res_dict['shift5'] = r[6] + " / " + r[7][30:33]
+        res_dict['shift6'] = r[6] + " / " + r[7][37:40]
+        res_dict['shift7'] = r[6] + " / " + r[7][44:47]
+        res_dict['shift8'] = r[6] + " / " + r[7][51:54]
+        table_list.append(res_dict.copy())
+      else:
+        if second_year1_off == 0:
+          second_year1_off = r[4]
+        else:
+          second_year2_off = r[4]
+
+    # make checks to decide which second year is in B first
+    if first_year_off == second_year1_off:
+      if first_year_off <= 4:
+        second_year1_B_first = False
+    elif first_year_off == second_year2_off:
+      if first_year_off > 4:
+        second_year1_B_first = False
+    elif second_year1_off == second_year2_off:
+      second_year_off_same = True
+    
+    # go through the results again in a loop
+    for r in result:
+      if r[6] == "B" and r[3] == 2:
+        if ((r[4] == second_year1_off and second_year1_B_first == True) or (r[4] == second_year2_off and second_year1_B_first == False)) and (second_year_off_same == False):
+          res_dict['id'] = r[0]
+          res_dict['name'] = r[1] + ' ' + r[2]
+          res_dict['first_name'] = r[1]
+          res_dict['last_name'] = r[2]
+          res_dict['year'] = r[3]
+          res_dict['off'] = r[4]
+          res_dict['block'] = r[5]
+          res_dict['ward'] = r[6]
+          res_dict['shift'] = r[7]
+          res_dict['shift1'] = r[6] + " / " + r[7][2:5]
+          res_dict['shift2'] = r[6] + " / " + r[7][9:12]
+          res_dict['shift3'] = r[6] + " / " + r[7][16:19]
+          res_dict['shift4'] = r[6] + " / " + r[7][23:26]
+          res_dict['shift5'] = "F / " + r[7][30:33]
+          res_dict['shift6'] = "F / " + r[7][37:40]
+          res_dict['shift7'] = "F / " + r[7][44:47]
+          res_dict['shift8'] = "F / " + r[7][51:54]
+          table_list.append(res_dict.copy())
+        else:
+          res_dict['id'] = r[0]
+          res_dict['name'] = r[1] + ' ' + r[2]
+          res_dict['first_name'] = r[1]
+          res_dict['last_name'] = r[2]
+          res_dict['year'] = r[3]
+          res_dict['off'] = r[4]
+          res_dict['block'] = r[5]
+          res_dict['ward'] = r[6]
+          res_dict['shift'] = r[7]
+          res_dict['shift1'] = "F / " + r[7][2:5]
+          res_dict['shift2'] = "F / " + r[7][9:12]
+          res_dict['shift3'] = "F / " + r[7][16:19]
+          res_dict['shift4'] = "F / " + r[7][23:26]
+          res_dict['shift5'] = r[6] + " / " + r[7][30:33]
+          res_dict['shift6'] = r[6] + " / " + r[7][37:40]
+          res_dict['shift7'] = r[6] + " / " + r[7][44:47]
+          res_dict['shift8'] = r[6] + " / " + r[7][51:54]
+          table_list.append(res_dict.copy())
+          second_year_off_same = False
     return table_list
 
+  def select_all(self, table):
+    table_list = []
+    result = self.select_one("*", table, 'block = 1')
+    table_list = self.place_per_block(result)
+
+    result = self.select_one("*", table, 'block = 2')
+    block2_list = self.place_per_block(result)
+    for r in block2_list:
+      table_list.append(r)
+
+    result = self.select_one("*", table, 'block = 3')
+    block3_list = self.place_per_block(result)
+    for r in block3_list:
+      table_list.append(r)
+    return table_list
 
   def select_one(self, item, table, conditions):
     db = self.connect()
