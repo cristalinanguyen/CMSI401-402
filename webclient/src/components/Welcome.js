@@ -19,9 +19,9 @@ export default class Welcome extends Component {
                         </Link>
                         <Link to="/current-schedule" className="Welcome-card">
                             <img src={view} className="Welcome-img" alt="view"></img>
-                            <p>VIEW CURRENT SCHEDULE</p>
+                            <p>VIEW SCHEDULE</p>
                         </Link>
-                        <Link to="/create-new-schedule" className="Welcome-card">
+                        <Link to="/current-schedule" className="Welcome-card">
                             <img src={create} className="Welcome-img" alt="create"></img>
                             <p>CREATE NEW SCHEDULE</p>
                         </Link>
