@@ -15,6 +15,56 @@ import StepConnector from "@material-ui/core/StepConnector";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { fontFamily } from '@material-ui/system';
+import Grid from '@material-ui/core/Grid';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
+
+function MaterialUIPickers() {
+  // The first commit of Material-UI
+  const [selectedDate, setSelectedDate] = React.useState(new Date('2020-05-13T21:11:54'));
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
+  return (
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <Grid container justify="space-around">
+        <KeyboardDatePicker
+          disableToolbar
+          variant="inline"
+          format="MM/dd/yyyy"
+          margin="normal"
+          id="date-picker-inline"
+          label="Start Date"
+          value={selectedDate}
+          onChange={handleDateChange}
+          KeyboardButtonProps={{
+            'aria-label': 'change date',
+          }}
+        />
+      </Grid>
+    </MuiPickersUtilsProvider>
+  );
+}
+
+const StyledButton = withStyles({
+  root: {
+    background: 'linear-gradient(45deg, #28547A 30%, #28547A 90%)',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+  },
+  label: {
+    textTransform: 'capitalize',
+  },
+})(Button);
 
 const QontoConnector = withStyles({
   alternativeLabel: {
@@ -38,6 +88,7 @@ const QontoConnector = withStyles({
     borderRadius: 1
   }
 })(StepConnector);
+
 
 const useQontoStepIconStyles = makeStyles({
   root: {
@@ -149,6 +200,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(3),
     marginRight: theme.spacing(1),
     marginBottom: "10%"
+
   },
   instructions: {
     marginTop: theme.spacing(3),
@@ -163,7 +215,7 @@ function getSteps() {
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return "";
+      return <MaterialUIPickers/>;
     case 1:
       return "";
     case 2:
@@ -172,6 +224,8 @@ function getStepContent(step) {
       return "";
   }
 }
+
+
 
 function CustomizedSteppers() {
   const classes = useStyles();
@@ -226,14 +280,13 @@ function CustomizedSteppers() {
               >
                 Back
               </Button>
-              <Button
+              <StyledButton
                 variant="contained"
-                color="primary"
                 onClick={handleNext}
                 className={classes.button}
               >
                 {activeStep === steps.length - 1 ? "Finish" : "Next"}
-              </Button>
+              </StyledButton>
             </div>
           </div>
         )}
