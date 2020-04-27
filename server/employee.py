@@ -1,4 +1,3 @@
-
 class Employee:
     # instead of specific arguments use a dictionary with arguments
     def __init__(self, dictionary):
@@ -11,3 +10,5 @@ class Employee:
         self.ward = dictionary['ward'] if 'ward' in dictionary else None
         self.poss_list = dictionary['poss_list'] if 'poss_list' in dictionary else None
         self.shifts = dictionary['shifts'] if 'shifts' in dictionary else None
+        self.off_bool = dictionary['off_bool'] if 'off_bool' in dictionary else True
+
