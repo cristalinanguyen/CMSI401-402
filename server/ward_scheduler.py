@@ -26,8 +26,6 @@ class Schedule:
             print ( ("Name: %s  |  Ward: %s  |  Off: %s  " % (s.first_name, s.ward, s.off) ).center(40,' ') )
             # print (s.ward)
             x = x + 1
-        sy_list[len(sy_list) - 1].ward = 'B'
-        print(sy_list[len(sy_list) - 1].ward) 
 
     def make_poss_list(self, ward_list, sy_list, fy_list):
         for f in fy_list:
@@ -107,6 +105,7 @@ class Schedule:
                 else:
                     res.ward = 'B'
                     res.off = -1
+                    res.off_bool = False
             new_set.add(res)
             unplaced_fy.remove(res)
 
@@ -116,11 +115,12 @@ class Schedule:
                 y.ward = ward
                 ward_list.remove(ward)
                 y.off = -1
+                y.off_bool = False
                 new_set.add(y)
             else:
-                print ('Y: ', y.first_name)
                 y.ward = 'B'
                 y.off = -1
+                y.off_bool = False
                 new_set.add(y)
 
         for n in new_set:
@@ -200,16 +200,11 @@ def main():
     first_year_list = []
 
     for t in db2_list:
-        # print ('0: ', t[0])
-        # print ('1: ', t[1])
-        # print ('2: ', t[2])
-        # print ('3: ', t[3])
-        # print ('4: ', t[4])
-        add = Employee({'id': t[0], 'first_name': t[1], 'last_name': t[2], 'year': t[3], 'block': t[4], 'off': t[5]})
+        add = Employee({'id': t[0], 'first_name': t[1], 'last_name': t[2], 'year': t[3], 'block': t[4], 'off': t[5], 'off_bool': True})
         second_year_list.append(add)
 
     for t in db1_list:
-        add = Employee({'id': t[0], 'first_name': t[1], 'last_name': t[2], 'year': t[3], 'block': t[4], 'off': t[5], 'poss_list': set()})
+        add = Employee({'id': t[0], 'first_name': t[1], 'last_name': t[2], 'year': t[3], 'block': t[4], 'off': t[5], 'poss_list': set(), 'off_bool': True})
         first_year_list.append(add)
 
     # save the list of first years before it is emptied
@@ -291,10 +286,8 @@ def main():
 
     for e in all_employees:
         e.block = block
-        # print(e.first_name, e. ward, e.shifts)
 
     for e in all_employees:
-        print ('e: ', e.first_name)
         #UPDATING WARD
         values_holder = 'ward = \'' + e.ward + '\'' + ', off = ' + str(e.off)
         columns_holder = 'employee_id = ' + str(e.id)
@@ -304,8 +297,11 @@ def main():
         query_list = shift_str.replace('\'', '\\\'')
         query_list = ' shift = \'' + query_list + '\''
 
+        #UPDATING OFF BOOL
+        bool_upd = ' off_bool = ' + str(e.off_bool)
+
         #BOTH
-        together = values_holder + ',' + query_list
+        together = values_holder + ',' + query_list + ',' + bool_upd
         dao.update('employees', together, columns_holder)
 
 
