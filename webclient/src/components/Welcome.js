@@ -21,12 +21,12 @@ export default class Welcome extends Component {
                             <img src={view} className="Welcome-img" alt="view"></img>
                             <p>VIEW SCHEDULE</p>
                         </Link>
-                        <Link to="/current-schedule" className="Welcome-card">
+                        <Link to="/create-new-schedule" className="Welcome-card">
                             <img src={create} className="Welcome-img" alt="create"></img>
                             <p>CREATE NEW SCHEDULE</p>
                         </Link>
                     </div>
-                    <button className="Back-to-login">GO BACK TO LOGIN PAGE</button>
+                    {/* <button className="Back-to-login">GO BACK TO LOGIN PAGE</button> */}
                 </div>
             </div>
         );
