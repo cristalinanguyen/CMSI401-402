@@ -11,6 +11,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
+import $ from 'jquery';
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
@@ -72,10 +73,22 @@ function SelectDateDialog() {
   )
 }
 
+function runBlockSchedule() {
+    $.ajax({
+        type: "POST",
+        url: "http://127.0.0.1:5000/create-new-schedule",
+        data: { schedType: 'block' },
+        success: function(response) {
+          console.log(response)
+        }
+    });
+}
+
 function CreateBlockDialog() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
+    runBlockSchedule();
     setOpen(true);
   };
   const handleClose = () => {
@@ -106,10 +119,23 @@ function CreateBlockDialog() {
   );
 }
 
+function runFullSchedule() {
+    $.ajax({
+        type: "POST",
+        url: "http://127.0.0.1:5000/create-new-schedule",
+        data: { schedType: 'full' },
+        success: function(response) {
+          console.log()
+        }
+    });
+}
+
 function CreateFullDialog() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
+    // ajax?
+    runFullSchedule();
     setOpen(true);
   };
   const handleClose = () => {
