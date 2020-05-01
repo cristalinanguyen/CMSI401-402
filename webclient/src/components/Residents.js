@@ -47,13 +47,38 @@ const tableIcons = {
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} style={{color: '#28547A'}}/>)
 };
 
-function updateRes(resId, resYear, resWeekOff) {
+function updateRes(resId, resYear, resWeekOff, resFirst, resLast) {
   $.ajax({
     type: 'PUT',
     url: "http://127.0.0.1:5000/residents",
     data: { resId: resId,
             resYear: resYear,
-            resWeekOff: resWeekOff },
+            resWeekOff: resWeekOff,
+            resFirst: resFirst,
+            resLast: resLast
+          },
+    success: function(response) {
+      console.log(response)
+    }
+  })
+}
+
+function addRes(resInfo) {
+  $.ajax({
+    type: 'POST',
+    url: "http://127.0.0.1:5000/residents",
+    data: { resInfo: resInfo },
+    success: function(response) {
+      console.log(response)
+    }
+  })
+}
+
+function deleteRes(resId) {
+  $.ajax({
+    type: 'DELETE',
+    url: "http://127.0.0.1:5000/residents",
+    data: { resId: resId },
     success: function(response) {
       console.log(response)
     }
@@ -66,9 +91,13 @@ export default class Residents extends Component {
     this.state = {
       data: [ ],
       updatedRes: false,
+      addedRes: false,
+      deletedRes: false,
       upResId: null,
       upResYear: null,
       upResWeekOff: null,
+      upResFirst: null,
+      upResLast: null
     }
   }
 
@@ -80,17 +109,30 @@ export default class Residents extends Component {
 
   componentDidUpdate() {
     if (this.state.updatedRes) {
-      updateRes(this.state.upResId, this.state.upResYear, this.state.upResWeekOff);
+      updateRes(this.state.upResId, this.state.upResYear, this.state.upResWeekOff, this.state.upResFirst, this.state.upResLast);
       this.setState({
         updatedRes: false,
         upResId: null,
         upResYear: null,
-        upResWeekOff: null
+        upResWeekOff: null,
+        upResFirst: null,
+        upResLast: null
+      });
+    } else if (this.state.addedRes) {
+      addRes((this.state.upResFirst, this.state.upResLast, this.state.upResYear));
+      this.setState({
+        addedRes: false,
+        upResYear: null,
+        upResFirst: null,
+        upResLast: null
+      });
+    } else if (this.state.deletedRes) {
+      deleteRes(this.state.upResId);
+      this.setState({
+        deletedRes: false,
+        upResId: null
       });
     }
-    // getResidents().then(residents => {
-    //   this.setState({ data: residents })
-    // })
   }
 
   render() {
@@ -150,9 +192,18 @@ export default class Residents extends Component {
                     new Promise((resolve, reject) => {
                       setTimeout(() => {
                         {
+                          const resYear = newData.year;
+                          const resFirst = newData.first_name;
+                          const resLast = newData.last_name;
                           const data = this.state.data;
                           data.push(newData);
-                          this.setState({ data }, () => resolve());
+                          this.setState({
+                            data: data,
+                            addedRes: true,
+                            upResYear: resYear,
+                            upResFirst: resFirst,
+                            upResLast: resLast
+                          }, () => resolve());
                         }
                         resolve()
                       }, 1000)
@@ -164,6 +215,8 @@ export default class Residents extends Component {
                           const resId = newData.id;
                           const resYear = newData.year;
                           const resWeekOff = newData.off;
+                          const resFirst = newData.first_name;
+                          const resLast = newData.last_name;
                           const data = this.state.data;
                           const index = data.indexOf(oldData);
                           data[index] = newData;
@@ -172,8 +225,10 @@ export default class Residents extends Component {
                             updatedRes: true,
                             upResId: resId,
                             upResYear: resYear,
-                            upResWeekOff: resWeekOff
-                             }, () => resolve());
+                            upResWeekOff: resWeekOff,
+                            upResFirst: resFirst,
+                            upResLast: resLast
+                          }, () => resolve());
                         }
                         resolve()
                       }, 1000)
@@ -184,8 +239,13 @@ export default class Residents extends Component {
                         {
                           let data = this.state.data;
                           const index = data.indexOf(oldData);
+                          const resId = data[index].id;
                           data.splice(index, 1);
-                          this.setState({ data }, () => resolve());
+                          this.setState({
+                            data: data,
+                            deletedRes: true,
+                            upResId: resId
+                          }, () => resolve());
                         }
                         resolve()
                       }, 1000)

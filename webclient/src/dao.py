@@ -148,49 +148,40 @@ class Dao:
     db = self.connect()
     mycursor = db.cursor()
     query = ( "UPDATE %s SET %s WHERE %s " % (table, columns, conditions) )
-    mycursor.execute(query)
-    db.commit()
-
-    print(mycursor.rowcount, "record(s) affected")
-
-  def updateYear(self, value, condition):
-    db = self.connect()
-    mycursor = db.cursor()
-    query = ( "UPDATE employees SET year = %s WHERE (employee_id = %s )" % (value, condition) )
-    print ('QUERY: ', query)
+    print('QUERY: ', query)
     mycursor.execute(query)
     db.commit()
     print(mycursor.rowcount, "record(s) affected")
 
-  def updateOff(self, value, condition):
-    db = self.connect()
-    mycursor = db.cursor()
-    query = ( "UPDATE employees SET off = %s WHERE (employee_id = %s )" % (value, condition) )
-    print ('QUERY: ', query)
-    mycursor.execute(query)
-    db.commit()
-    print(mycursor.rowcount, "record(s) affected")
+  def updateOff(self, value, id):
+    val = 'off = \'' + str(value) + '\''
+    cond = 'employee_id = \'' + str(id) + '\''
+    self.update('employees', val, cond)
+    # db = self.connect()
+    # mycursor = db.cursor()
+    # query = ( "UPDATE employees SET off = %s WHERE (employee_id = %s )" % (value, condition) )
+    # print ('QUERY: ', query)
+    # mycursor.execute(query)
+    # db.commit()
+    # print(mycursor.rowcount, "record(s) affected")
 
-  def updateFirstName(self, value, condition):
-    db = self.connect()
-    mycursor = db.cursor()
-    query = ( "UPDATE employees SET first_name = \'%s\' WHERE (employee_id = %s )" % (value, condition) )
-    print ('QUERY: ', query)
-    mycursor.execute(query)
-    db.commit()
-    print(mycursor.rowcount, "record(s) affected")
-
-  def updateLastName(self, value, condition):
-    db = self.connect()
-    mycursor = db.cursor()
-    query = ( "UPDATE employees SET last_name = \'%s\' WHERE (employee_id = %s )" % (value, condition) )
-    print ('QUERY: ', query)
-    mycursor.execute(query)
-    db.commit()
-    print(mycursor.rowcount, "record(s) affected")
-
-
-
+  def updateYear(self, value, id):
+    val = 'year = \'' + str(value) + '\''
+    cond = 'employee_id = \'' + str(id) + '\''
+    self.update('employees', val, cond)
+  
+  def updateFirstName(self, value, id):
+    val = 'first_name = \'' + value + '\''
+    cond = 'employee_id = \'' + str(id) + '\''
+    self.update('employees', val, cond)
+  
+  def updateLastName(self, value, id):
+    val = 'last_name = \'' + value + '\''
+    cond = 'employee_id = \'' + str(id) + '\''
+    self.update('employees', val, cond)
+  
+  def insertEmpl(self, values):
+    self.insert('employees', 'first_name, last_name, year', values)
 
   def insert(self, table, columns, values):
     db = self.connect()
@@ -207,6 +198,13 @@ class Dao:
     mycursor.execute(query)
     db.commit()
     print(mycursor.rowcount, "record(s) affected")
+  
+  def deleteEmpl(self, id):
+    # query = ( "DELETE FROM %s WHERE %s " % (table, condition) )
+    cond = 'employee_id = \'' + str(id) + '\''
+    self.delete('employees', cond)
+
+
 
   def deleteAllAttrInt(self, table, column, replace):
     db = self.connect()
