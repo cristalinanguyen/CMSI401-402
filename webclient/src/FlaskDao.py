@@ -28,12 +28,14 @@ def residents():
     dao.updateOff(request.form['resWeekOff'], request.form['resId'])
     dao.updateFirstName(request.form['resFirst'], request.form['resId'])
     dao.updateLastName(request.form['resLast'], request.form['resId'])
-  # elif request.method == 'POST':
-  #   dao.insertEmpl(request.form['resInfo'])
+  elif request.method == 'POST':
+    dao.insertEmpl(request.form['resFirst'], request.form['resLast'], request.form['resYear'])
   elif request.method == 'DELETE':
     dao.deleteEmpl(request.form['resId'])
 
+  # result = dao.all_employees()
   result = dao.select_all('employees')
+
 
   result = jsonify(result)
   return result
@@ -57,12 +59,6 @@ def create_schedule():
     ward_scheduler.main()
   result = "The algorithm was successfully run hehe"
   return jsonify(result)
-
-# @app.route('/create-new-schedule', methods = ['POST'])
-# def create_blocks():
-#   block_scheduler.main()
-#   result = "The block scheduler was run successfully :)"
-#   return jsonify(result)
 
 if __name__ == "__main__":
 	app.run()

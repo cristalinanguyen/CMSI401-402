@@ -38,6 +38,12 @@ class Dao:
     second_year_off_same = False
 
     for r in result:
+      if r[5] == 0:
+        res_dict['id'] = r[0]
+        res_dict['name'] = r[1] + ' ' + r[2]
+        res_dict['first_name'] = r[1]
+        res_dict['last_name'] = r[2]
+        res_dict['year'] = r[3]
       if r[6] == "B" and r[3] == 1:
         first_year_off = r[4]
       if not (r[6] == "B" and r[3] == 2):
@@ -122,18 +128,38 @@ class Dao:
 
   def select_all(self, table):
     table_list = []
+    # res_dict = {}
     result = self.select_one("*", table, 'block = 1')
     table_list = self.place_per_block(result)
-
     result = self.select_one("*", table, 'block = 2')
     block2_list = self.place_per_block(result)
     for r in block2_list:
       table_list.append(r)
-
     result = self.select_one("*", table, 'block = 3')
     block3_list = self.place_per_block(result)
     for r in block3_list:
       table_list.append(r)
+    result = self.select_one("*", table, 'block = 0')
+    newRes_list = self.place_per_block(result)
+    for r in newRes_list:
+      table_list.append(r)
+    return table_list
+
+  def all_employees(self):
+    table_list = []
+    res_dict = {}
+    result = self.select_one('*', 'employees', 'True = True')
+    for r in result:
+      res_dict['id'] = r[0]
+      res_dict['name'] = r[1] + ' ' + r[2]
+      res_dict['first_name'] = r[1]
+      res_dict['last_name'] = r[2]
+      res_dict['year'] = r[3]
+      res_dict['off'] = r[4]
+      res_dict['block'] = r[5]
+      res_dict['ward'] = r[6]
+      res_dict['shift'] = r[7]
+      table_list.append(res_dict.copy())
     return table_list
 
   def select_one(self, item, table, conditions):
@@ -157,13 +183,6 @@ class Dao:
     val = 'off = \'' + str(value) + '\''
     cond = 'employee_id = \'' + str(id) + '\''
     self.update('employees', val, cond)
-    # db = self.connect()
-    # mycursor = db.cursor()
-    # query = ( "UPDATE employees SET off = %s WHERE (employee_id = %s )" % (value, condition) )
-    # print ('QUERY: ', query)
-    # mycursor.execute(query)
-    # db.commit()
-    # print(mycursor.rowcount, "record(s) affected")
 
   def updateYear(self, value, id):
     val = 'year = \'' + str(value) + '\''
@@ -180,13 +199,15 @@ class Dao:
     cond = 'employee_id = \'' + str(id) + '\''
     self.update('employees', val, cond)
   
-  def insertEmpl(self, values):
-    self.insert('employees', 'first_name, last_name, year', values)
+  def insertEmpl(self, first_name, last_name, year):
+    values = '\'' + first_name + '\', \'' + last_name + '\', \'' + str(year) + '\', \'0\''
+    self.insert('employees', 'first_name, last_name, year, block', values)
 
   def insert(self, table, columns, values):
     db = self.connect()
     mycursor = db.cursor()
     query = ( "INSERT INTO %s ( %s ) VALUES(%s) " % (table, columns, values) )
+    print('QUERY: ', query)
     mycursor.execute(query)
     db.commit()
     print(mycursor.rowcount, "record(s) affected")
@@ -195,6 +216,7 @@ class Dao:
     db = self.connect()
     mycursor = db.cursor()
     query = ( "DELETE FROM %s WHERE %s " % (table, condition) )
+    print('QUERY: ', query)
     mycursor.execute(query)
     db.commit()
     print(mycursor.rowcount, "record(s) affected")
@@ -203,8 +225,6 @@ class Dao:
     # query = ( "DELETE FROM %s WHERE %s " % (table, condition) )
     cond = 'employee_id = \'' + str(id) + '\''
     self.delete('employees', cond)
-
-
 
   def deleteAllAttrInt(self, table, column, replace):
     db = self.connect()

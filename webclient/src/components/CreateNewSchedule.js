@@ -62,7 +62,9 @@ function SelectDateDialog() {
         Select Start Date
       </StyledButton>
       <Dialog onClose={handleClose} open={open}>
-        <MaterialUIPickers/>
+        <DialogContent>
+          <MaterialUIPickers/>
+        </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose} color="primary">
               Done
@@ -190,19 +192,19 @@ export default class CreateNewSchedule extends Component {
                 <p className="Create-schedule-title">Creating Your Schedule</p>
                 {/* <CustomizedSteppers/> */}
                 <div className="Welcome-body">
-                    <div className="Welcome-card">
+                    <div className="Create-schedule-card">
                         <h2>STEP 1</h2>
                         <h3>Choose 6 month block start date</h3>
-                        <SelectDateDialog/>
+                        <SelectDateDialog className="Select-date"/>
                     </div>
                     {/* arrow icon */}
-                    <div className="Welcome-card">
+                    <div className="Create-schedule-card">
                         <h2>STEP 2</h2>
                         <h3>Create 6 month block schedule</h3>
                         <CreateBlockDialog/>
                     </div>
                     {/* arrow icon */}
-                    <div className="Welcome-card">
+                    <div className="Create-schedule-card">
                         <h2>STEP 3</h2>
                         <h3>Create 6 month full schedule</h3>
                         <CreateFullDialog/>

@@ -24,7 +24,7 @@ import { TablePagination } from '@material-ui/core';
 import { getResidents } from '../api'; 
 import { CsvBuilder } from 'filefy';
 import { makeStyles } from '@material-ui/core/styles';
-import { spacing } from '@material-ui/system';
+import { spacing, positions } from '@material-ui/system';
 import $ from 'jquery';
 
 const tableIcons = {
@@ -63,11 +63,14 @@ function updateRes(resId, resYear, resWeekOff, resFirst, resLast) {
   })
 }
 
-function addRes(resInfo) {
+function addRes(resFirst, resLast, resYear) {
   $.ajax({
     type: 'POST',
     url: "http://127.0.0.1:5000/residents",
-    data: { resInfo: resInfo },
+    data: { resFirst: resFirst,
+            resLast: resLast,
+            resYear: resYear
+          },
     success: function(response) {
       console.log(response)
     }
@@ -119,7 +122,7 @@ export default class Residents extends Component {
         upResLast: null
       });
     } else if (this.state.addedRes) {
-      addRes((this.state.upResFirst, this.state.upResLast, this.state.upResYear));
+      addRes(this.state.upResFirst, this.state.upResLast, this.state.upResYear);
       this.setState({
         addedRes: false,
         upResYear: null,
@@ -153,23 +156,23 @@ export default class Residents extends Component {
                 columns={[
                   { title: 'NAME', field: 'first_name',
                     cellStyle: { backgroundColor: '#FFF', color: '#28547A'},
-                    headerStyle: { backgroundColor: '#28547A', color: '#FFF'}},
+                    headerStyle: { backgroundColor: '#28547A', color: '#FFF', position: "sticky"}},
                     { title: 'LAST', field: 'last_name',
                     cellStyle: { backgroundColor: '#FFF', color: '#28547A'},
-                    headerStyle: { backgroundColor: '#28547A', color: '#FFF'}},
+                    headerStyle: { backgroundColor: '#28547A', color: '#FFF', position: "sticky"}},
                   { title: 'BLOCK', field: 'block', 
                     cellStyle: { backgroundColor: '#FFF', color: '#28547A', textAlign: "center"},
                     lookup: { 
                       1: '1', 
                       2: '2',
                       3: '3'},
-                    headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center"}},
+                    headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center", position: "sticky"}},
                   { title: 'YEAR', field: 'year', 
                     cellStyle: { backgroundColor: '#FFF', color: '#28547A', textAlign: "center"},
                     lookup: { 
                       1: '1', 
                       2: '2'},
-                    headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center"}},
+                    headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center", position: "sticky"}},
                   { title: 'WEEK OFF', field: 'off', 
                     cellStyle: { backgroundColor: '#FFF', color: '#28547A'},
                     lookup: { 
@@ -181,7 +184,7 @@ export default class Residents extends Component {
                       6: 'Week 6',
                       7: 'Week 7',
                       8: 'Week 8'},
-                    headerStyle: { backgroundColor: '#28547A', color: '#FFF'}},
+                    headerStyle: { backgroundColor: '#28547A', color: '#FFF', position: "sticky"}},
                     
                 ] 
                 }
@@ -278,8 +281,7 @@ export default class Residents extends Component {
                   },
 
 
-                }}
-                
+                }}                
             />
           </div>
       </div>
