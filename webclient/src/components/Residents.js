@@ -25,6 +25,7 @@ import { getResidents } from '../api';
 import { CsvBuilder } from 'filefy';
 import { makeStyles } from '@material-ui/core/styles';
 import { spacing } from '@material-ui/system';
+import $ from 'jquery';
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} style={{color: '#28547A'}}/>),
@@ -46,19 +47,52 @@ const tableIcons = {
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} style={{color: '#28547A'}}/>)
 };
 
+function updateRes(resId, resYear, resWeekOff) {
+  $.ajax({
+    type: 'PUT',
+    url: "http://127.0.0.1:5000/residents",
+    data: { resId: resId,
+            resYear: resYear,
+            resWeekOff: resWeekOff },
+    success: function(response) {
+      console.log(response)
+    }
+  })
+}
 
 export default class Residents extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [ ],
+      updatedRes: false,
+      upResId: null,
+      upResYear: null,
+      upResWeekOff: null,
     }
   }
+
   componentDidMount() {
     getResidents().then(residents => {
         this.setState({ data: residents })
     })
   }
+
+  componentDidUpdate() {
+    if (this.state.updatedRes) {
+      updateRes(this.state.upResId, this.state.upResYear, this.state.upResWeekOff);
+      this.setState({
+        updatedRes: false,
+        upResId: null,
+        upResYear: null,
+        upResWeekOff: null
+      });
+    }
+    // getResidents().then(residents => {
+    //   this.setState({ data: residents })
+    // })
+  }
+
   render() {
     return (
       <div className="App">
@@ -94,7 +128,7 @@ export default class Residents extends Component {
                       1: '1', 
                       2: '2'},
                     headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center"}},
-                  { title: 'WEEK OFF', field: 'shift', 
+                  { title: 'WEEK OFF', field: 'off', 
                     cellStyle: { backgroundColor: '#FFF', color: '#28547A'},
                     lookup: { 
                       1: 'Week 1', 
@@ -127,10 +161,19 @@ export default class Residents extends Component {
                     new Promise((resolve, reject) => {
                       setTimeout(() => {
                         {
+                          const resId = newData.id;
+                          const resYear = newData.year;
+                          const resWeekOff = newData.off;
                           const data = this.state.data;
                           const index = data.indexOf(oldData);
                           data[index] = newData;
-                          this.setState({ data }, () => resolve());
+                          this.setState({ 
+                            data: data,
+                            updatedRes: true,
+                            upResId: resId,
+                            upResYear: resYear,
+                            upResWeekOff: resWeekOff
+                             }, () => resolve());
                         }
                         resolve()
                       }, 1000)

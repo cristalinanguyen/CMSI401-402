@@ -21,11 +21,14 @@ app.debug = True
 
 dao = Dao('stproch','fuzzwuzhere', 'keckmysql-rds.lmucs.com', 'stproch')
 
-@app.route("/residents")
+@app.route("/residents", methods = ['PUT', 'GET'])
 def residents():
-  output = dao.select_all('employees')
+  if request.method == 'PUT':
+    dao.updateYear(request.form['resYear'], request.form['resId'])
+    dao.updateOff(request.form['resWeekOff'], request.form['resId'])
+  result = dao.select_all('employees')
 
-  result = jsonify(output)
+  result = jsonify(result)
   return result
 
 @app.route("/current-schedule")

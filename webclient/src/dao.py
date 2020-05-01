@@ -153,6 +153,45 @@ class Dao:
 
     print(mycursor.rowcount, "record(s) affected")
 
+  def updateYear(self, value, condition):
+    db = self.connect()
+    mycursor = db.cursor()
+    query = ( "UPDATE employees SET year = %s WHERE (employee_id = %s )" % (value, condition) )
+    print ('QUERY: ', query)
+    mycursor.execute(query)
+    db.commit()
+    print(mycursor.rowcount, "record(s) affected")
+
+  def updateOff(self, value, condition):
+    db = self.connect()
+    mycursor = db.cursor()
+    query = ( "UPDATE employees SET off = %s WHERE (employee_id = %s )" % (value, condition) )
+    print ('QUERY: ', query)
+    mycursor.execute(query)
+    db.commit()
+    print(mycursor.rowcount, "record(s) affected")
+
+  def updateFirstName(self, value, condition):
+    db = self.connect()
+    mycursor = db.cursor()
+    query = ( "UPDATE employees SET first_name = \'%s\' WHERE (employee_id = %s )" % (value, condition) )
+    print ('QUERY: ', query)
+    mycursor.execute(query)
+    db.commit()
+    print(mycursor.rowcount, "record(s) affected")
+
+  def updateLastName(self, value, condition):
+    db = self.connect()
+    mycursor = db.cursor()
+    query = ( "UPDATE employees SET last_name = \'%s\' WHERE (employee_id = %s )" % (value, condition) )
+    print ('QUERY: ', query)
+    mycursor.execute(query)
+    db.commit()
+    print(mycursor.rowcount, "record(s) affected")
+
+
+
+
   def insert(self, table, columns, values):
     db = self.connect()
     mycursor = db.cursor()
