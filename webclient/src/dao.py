@@ -200,8 +200,8 @@ class Dao:
     self.update('employees', val, cond)
   
   def insertEmpl(self, first_name, last_name, year):
-    values = '\'' + first_name + '\', \'' + last_name + '\', \'' + str(year) + '\', \'0\''
-    self.insert('employees', 'first_name, last_name, year, block', values)
+    values = '\'' + first_name + '\', \'' + last_name + '\', \'' + str(year) + '\', \'0\', \' \',  \' \', \'0\' '
+    self.insert('employees', 'first_name, last_name, year, block, ward, shift, off_bool', values)
 
   def insert(self, table, columns, values):
     db = self.connect()

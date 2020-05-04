@@ -255,7 +255,7 @@ export default class Residents extends Component {
                     }),
                 }}
                 options={{
-                  pageSize: 24,
+                  pageSize: 30,
                   pageSizeOptions: [],
                   headerStyle: {
                     backgroundColor: '#28547A', color: '#FFF'
