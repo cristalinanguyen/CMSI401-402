@@ -23,7 +23,7 @@ The purpose of this system is to accelerate the scheduling process while ensurin
 ```
 pip install mysql-connector-python flask flask_cors
 ```
-3. Check that the Flask backend work:
+3. Check that the Flask backend works (this should return JSON data):
 
 http://127.0.0.1:5000/residents
 
