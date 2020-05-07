@@ -47,11 +47,17 @@ Our app consists of four pages: the Home Page, Residents Page, Create Schedule P
 
 You can access the Home Page by clicking the USchedule logo in the top left corner. You can access the three other pages by clicking the cards on the Home Page or the buttons on the header.
 
+________________________________________________________
+
+
 **Residents Page**
 
 ![image](https://user-images.githubusercontent.com/31746937/81351489-4e75b180-9079-11ea-95c0-f700d6e0125a.png)
 
 The Residents Page is where all of the resident data can be viewed and edited. Our scheduling algorithm is tailored to Dr. Jones' constraints, which includes there being 24 residents in the program. 12 of these residents are first years and 12 are second years. It is important to remember, while using our web app, that the resident data is input correctly and that there are 12 first years and 12 second years to be scheduled.
+
+________________________________________________________
+
 
 **Create Schedule Page**
 
@@ -63,8 +69,14 @@ Next, she clicks `Create Block Schedule` which runs our algorithm and splits res
 
 Once all of the weeks off have been submitted, she clicks `Create Full Schedule` which runs our full scheduling algorithm. This algorithm places residents in wards and shifts for each week of their block and satisfies all of the constraints that Dr. Jones requires.
 
+________________________________________________________
+
 **Schedule Page**
 
+![image](https://user-images.githubusercontent.com/31746937/81352227-e45e0c00-907a-11ea-95e7-12b686ef6dcf.png)
 
+![image](https://user-images.githubusercontent.com/31746937/81352280-0061ad80-907b-11ea-99f3-de492ca67baa.png)
 
-The Schedule Page displays both the block schedule and the full schedule.
+The Schedule Page allows you to toggle between the block schedule and the full schedule. You can download either of these schedules as a `.csv` file by clicking the download icon in the top right corner of the tables. 
+
+> **Note:** The design of the full schedule is subject to change.
