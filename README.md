@@ -49,9 +49,13 @@ You can access the Home Page by clicking the USchedule logo in the top left corn
 
 **Residents Page**
 
+![image](https://user-images.githubusercontent.com/31746937/81351489-4e75b180-9079-11ea-95c0-f700d6e0125a.png)
+
+The Residents Page is where all of the resident data can be viewed and edited. Our scheduling algorithm is tailored to Dr. Jones' constraints, which includes there being 24 residents in the program. 12 of these residents are first years and 12 are second years. It is important to remember, while using our web app, that the resident data is input correctly and that there are 12 first years and 12 second years to be scheduled.
+
+**Create Schedule Page**
 
 
-The Residents Page is where all of the resident data can be viewed and edited.
 
 The Create Schedule Page is where Dr. Jones can create a new schedule. She first chooses a start date, then clicks `Create Block Schedule` to create the block schedule and clicks `Create Full Schedule` to create the full 6 month schedule (after having given every resident a week off).
 
