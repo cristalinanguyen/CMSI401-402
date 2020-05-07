@@ -31,15 +31,17 @@ http://127.0.0.1:5000/residents
 
 > **Note:** If you run into issues while running `npm start` make sure you have all of the dependencies installed
 
-> These dependencies include `react-scripts`, `jquery`, `material-ui`, and `material-table`. Some other dependecies may also need to be installed - if you need help please slack one of us!
+> These dependencies include `react-scripts`, `jquery`, `material-ui`, and `material-table`. To install these run `npm install react-scripts`, `npm install jquery`, etc. Some other dependecies may also need to be installed - if you need help please reach out to one of us!
 
 ### Firebase
 
 The frontend of our web app is currently being hosted using Firebase at `https://lac-usc-uschedule.web.app/`. We have yet to get the server hosted due to the cost.
 
-### Our App
+### Using Our App
 
-Our app consists of a home page and three other pages.
+Our app consists of four pages: the Home Page, Residents Page, Create Schedule Page, and the Current Schedule Page.
+
+**Home Page**
 
 The Residents Page is where all of the resident data can be viewed and edited.
 
