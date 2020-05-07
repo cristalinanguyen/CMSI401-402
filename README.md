@@ -35,7 +35,7 @@ http://127.0.0.1:5000/residents
 
 ### Firebase
 
-The frontend of our web app is currently being hosted using Firebase at `https://lac-usc-uschedule.web.app/`. We have yet to get the server hosted due to the cost.
+The frontend of our web app is currently being hosted using Firebase at https://lac-usc-uschedule.web.app/. We have yet to get the server hosted due to the cost.
 
 ### Using Our App
 
