@@ -43,6 +43,14 @@ Our app consists of four pages: the Home Page, Residents Page, Create Schedule P
 
 **Home Page**
 
+![image](https://user-images.githubusercontent.com/31746937/81351240-bbd51280-9078-11ea-8a2a-24e1d317ba63.png)
+
+You can access the Home Page by clicking the USchedule logo in the top left corner. You can access the three other pages by clicking the cards on the Home Page or the buttons on the header.
+
+**Residents Page**
+
+
+
 The Residents Page is where all of the resident data can be viewed and edited.
 
 The Create Schedule Page is where Dr. Jones can create a new schedule. She first chooses a start date, then clicks `Create Block Schedule` to create the block schedule and clicks `Create Full Schedule` to create the full 6 month schedule (after having given every resident a week off).
