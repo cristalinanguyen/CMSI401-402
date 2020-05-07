@@ -20,6 +20,10 @@ The purpose of this system is to accelerate the scheduling process while ensurin
 
 2. `cd` into the repo, then into the `webclient` folder and then the `src` folder on the command line and run `python3 FlaskDao.py`
 
+```
+pip install mysql-connector-python flask flask_cors
+```
+
 3. In another terminal window, `cd` into the `webclient` folder and run `npm start`
 
 > **Note:** If you run into issues while running `npm start` make sure you have all of the dependencies installed
