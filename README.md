@@ -39,7 +39,7 @@ The frontend of our web app is currently being hosted using Firebase at `https:/
 
 ### Using Our App
 
-Our app consists of four pages: the Home Page, Residents Page, Create Schedule Page, and the Current Schedule Page.
+Our app consists of four pages: the Home Page, Residents Page, Create Schedule Page, and the Schedule Page.
 
 **Home Page**
 
@@ -55,8 +55,16 @@ The Residents Page is where all of the resident data can be viewed and edited. O
 
 **Create Schedule Page**
 
+![image](https://user-images.githubusercontent.com/31746937/81351733-dc519c80-9079-11ea-9ff3-97619720cc09.png)
+
+The Create Schedule Page is where you can create a new schedule. Again, this is tailored to Dr. Jones' scheduling needs. First, she chooses a start date for the next six month schedule. That date is stored in our database.
+
+Next, she clicks `Create Block Schedule` which runs our algorithm and splits residents into three two-month long blocks. Each block contains eight residents: four first years and four second years. She can view and download the new block schedule from the Schedule Page. Dr. Jones will then send out the schedule to her residents, who will each respond with their preffered week off. She can input their week off in the Residents Page.
+
+Once all of the weeks off have been submitted, she clicks `Create Full Schedule` which runs our full scheduling algorithm. This algorithm places residents in wards and shifts for each week of their block and satisfies all of the constraints that Dr. Jones requires.
+
+**Schedule Page**
 
 
-The Create Schedule Page is where Dr. Jones can create a new schedule. She first chooses a start date, then clicks `Create Block Schedule` to create the block schedule and clicks `Create Full Schedule` to create the full 6 month schedule (after having given every resident a week off).
 
 The Schedule Page displays both the block schedule and the full schedule.
