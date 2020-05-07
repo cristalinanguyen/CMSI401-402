@@ -18,7 +18,7 @@ The purpose of this system is to accelerate the scheduling process while ensurin
 
 1. `git clone` this repository
 
-2. `cd` into the `server` folder on the command line and run `python3 FlaskDao.py`
+2. `cd` into the repo, then into the `webclient` folder and then the `src` folder on the command line and run `python3 FlaskDao.py`
 
 3. In another terminal window, `cd` into the `webclient` folder and run `npm start`
 
