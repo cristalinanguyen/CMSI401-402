@@ -23,8 +23,11 @@ The purpose of this system is to accelerate the scheduling process while ensurin
 ```
 pip install mysql-connector-python flask flask_cors
 ```
+3. Check that the Flask backend work:
 
-3. In another terminal window, `cd` into the `webclient` folder and run `npm start`
+http://127.0.0.1:5000/residents
+
+4. In another terminal window, `cd` into the `webclient` folder and run `npm start`
 
 > **Note:** If you run into issues while running `npm start` make sure you have all of the dependencies installed
 
