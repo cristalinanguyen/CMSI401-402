@@ -7,14 +7,14 @@ import Typography from "@material-ui/core/Typography";
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
+// import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import $ from 'jquery';
 import {
   MuiPickersUtilsProvider,
-  KeyboardTimePicker,
+  // KeyboardTimePicker,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
 
@@ -23,6 +23,7 @@ function MaterialUIPickers() {
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+    saveStartDate(date);
   };
 
   return (
@@ -46,6 +47,20 @@ function MaterialUIPickers() {
   );
 }
 
+function saveStartDate(startDate) {
+  $.ajax({
+    type: "POST",
+    url: "http://127.0.0.1:5000/create-new-schedule",
+    data: {
+      date: startDate,
+      schedType: 'none'
+    },
+    success: function(response) {
+      console.log(response);
+    }
+  });
+}
+
 function SelectDateDialog() {
   const [open, setOpen] = React.useState(false);
 
@@ -66,6 +81,7 @@ function SelectDateDialog() {
           <MaterialUIPickers/>
         </DialogContent>
         <DialogActions>
+          {/* <DateDoneDialog onClick={handleClose}/> */}
           <Button autoFocus onClick={handleClose} color="primary">
               Done
           </Button>
@@ -75,11 +91,48 @@ function SelectDateDialog() {
   )
 }
 
+// function DateDoneDialog() {
+//   const [open, setOpen] = React.useState(false);
+
+//   const handleClickOpen = () => {
+//     setOpen(true);
+//   };
+//   const handleClose = () => {
+//     setOpen(false);
+//   };
+
+//   return (
+//     <div>
+//       <Button autoFocus onClick={handleClickOpen}>
+//         Done
+//       </Button>
+//       <Dialog onClose={handleClose} open={open}>
+//         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+//           Success
+//         </DialogTitle>
+//         <DialogContent dividers>
+//           <Typography gutterBottom>
+//             Your start date has been selected. Now you can move on to the next step: creating your block schedule.
+//           </Typography>
+//         </DialogContent>
+//         <DialogActions>
+//           <Button autoFocus onClick={handleClose} color="primary">
+//             Done
+//           </Button>
+//         </DialogActions>
+//       </Dialog>
+//     </div>
+//   )
+// }
+
 function runBlockSchedule() {
     $.ajax({
         type: "POST",
         url: "http://127.0.0.1:5000/create-new-schedule",
-        data: { schedType: 'block' },
+        data: {
+          schedType: 'block',
+          date: 'none'
+        },
         success: function(response) {
           console.log(response)
         }
@@ -125,9 +178,14 @@ function runFullSchedule() {
     $.ajax({
         type: "POST",
         url: "http://127.0.0.1:5000/create-new-schedule",
-        data: { schedType: 'full' },
+        data: {
+          schedType: 'full',
+          date: 'none'
+        },
         success: function(response) {
-          console.log()
+          // if (response.startsWith('full schedule was not run')) {
+          // }
+          console.log(response)
         }
     });
 }
@@ -190,7 +248,6 @@ export default class CreateNewSchedule extends Component {
                     <h1>CreateNewSchedule Page </h1>
                 </Header>
                 <p className="Create-schedule-title">Creating Your Schedule</p>
-                {/* <CustomizedSteppers/> */}
                 <div className="Welcome-body">
                     <div className="Create-schedule-card">
                         <h2>STEP 1</h2>

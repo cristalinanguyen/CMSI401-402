@@ -20,11 +20,11 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
-import { TablePagination } from '@material-ui/core';
+// import { TablePagination } from '@material-ui/core';
 import { getResidents } from '../api'; 
 import { CsvBuilder } from 'filefy';
-import { makeStyles } from '@material-ui/core/styles';
-import { spacing, positions } from '@material-ui/system';
+// import { makeStyles } from '@material-ui/core/styles';
+// import { spacing, positions } from '@material-ui/system';
 import $ from 'jquery';
 
 const tableIcons = {
@@ -142,12 +142,11 @@ export default class Residents extends Component {
     return (
       <div className="App">
           <Header>
-              <h1>Residents Page </h1>
+              <h1>Residents Page</h1>
           </Header>
-
+          <div className="Res-title">Residents</div>
           <div style={{marginLeft:100, marginRight: 100}}>
             <MaterialTable
-                
                 title= ""
                 options={{
                   grouping: true
@@ -255,7 +254,7 @@ export default class Residents extends Component {
                     }),
                 }}
                 options={{
-                  pageSize: 30,
+                  pageSize: 24,
                   pageSizeOptions: [],
                   headerStyle: {
                     backgroundColor: '#28547A', color: '#FFF'

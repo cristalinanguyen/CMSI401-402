@@ -76,6 +76,7 @@
 }
 
 .Header-button {
+  /* try to fix the 'create schedule issue' */
   color: white;
   margin-left: 20px;
   background-color:  rgb(75, 122, 162);
@@ -193,4 +194,19 @@
   text-decoration: none;
   color: #3e5b73;
   cursor: pointer;
+}
+
+.Res-title {
+  animation: fadein 3s;
+  -moz-animation: fadein 3s; /* Firefox */
+  -webkit-animation: fadein 3s; /* Safari and Chrome */
+  -o-animation: fadein 3s; /* Opera */
+  font-family: "HelveticaNeue-Thin", Arial, Helvetica, sans-serif;
+  color: #3e5b73;
+  font-size: 35px;
+  padding: 2%;
+}
+
+.Start-date {
+  color: #28547A;
 }

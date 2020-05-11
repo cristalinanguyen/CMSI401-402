@@ -26,10 +26,13 @@ import PropTypes from 'prop-types';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import Paper from '@material-ui/core/Paper';
 import { TablePagination } from '@material-ui/core';
-import { getResidents } from '../api'; 
+import { getResidents, getStartDate } from '../api'; 
 import { CsvBuilder } from 'filefy';
 import { makeStyles } from '@material-ui/core/styles';
 import { spacing } from '@material-ui/system';
+import { getDate, setDate, addWeeks } from 'date-fns';
+import { parseISO } from 'date-fns/esm';
+import 'typeface-roboto';
 
 
 const tableIcons = {
@@ -91,16 +94,36 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-
+const getWeekDate = (startDate, week) => {
+  const start = parseISO(startDate);
+  let newDate = addWeeks(start, week - 1);
+  let month = (newDate.getMonth() + 1).toString();
+  (parseInt(month) < 10) ? month = '0' + month : month = month;
+  let day = (newDate.getDate()).toString();
+  (parseInt(day) < 10) ? day = '0' + day : day = day;
+  const year = (newDate.getFullYear()).toString();
+  newDate = `${month}/${day}/${year}`;
+  console.log(newDate);
+  return newDate; 
+}
 
 function ScrollableTabsButtonAuto() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  let startDate = '';
+  let resData = [];
+  getStartDate().then(date => {
+    startDate = date[0][0];
+    console.log(startDate);
+  });
+  getResidents().then(residents => {
+    resData = residents;
+    console.log(resData);
+  })
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-    
     
   return (
     <div className={classes.root}>
@@ -200,17 +223,28 @@ function ScrollableTabsButtonAuto() {
                   new Promise((resolve, reject) => {
                     getResidents().then(residents => {
                       resolve({ data: residents }) 
-                    })    
+                    }) 
                   })
                 }
-                
                 columns={[
                   { title: 'BLOCK', field: 'block', defaultGroupOrder: 0, 
                     cellStyle: { backgroundColor: '#FFF', color: '#28547A'},
                     headerStyle: { backgroundColor: '#28547A', color: '#FFF'}},
                   { title: 'RESIDENT', field: 'name',
-                    cellStyle: { backgroundColor: '#FFF', color: '#28547A'},
-                    headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center"}},
+                    cellStyle: { fontSize: 17, backgroundColor: '#FFF', color: '#28547A'},
+                    headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center"},
+                    render: rowData => (
+                      rowData.off_bool === "0" ?
+                      <div>
+                        <Typography variant="h5">{rowData.name} </Typography>
+                        <Typography variant="overline" display="block">{' • WEEK OFF NOT GRANTED'} </Typography>
+                      </div>
+                        :
+                      <div>
+                      <Typography variant="h7">{rowData.name} </Typography>
+                        <Typography variant="overline" display="block">{' • WEEK OFF GRANTED'} </Typography>
+                      </div>
+                    )},
                   { title: 'YEAR', field: 'year', 
                     cellStyle: { backgroundColor: '#FFF', color: '#28547A', textAlign: "center"},
                     headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center"}},
@@ -240,25 +274,25 @@ function ScrollableTabsButtonAuto() {
                     backgroundColor: '#658CAE',
                     color: '#FFF',
                   },
-                  exportButton: true,
+                  exportButton: false,
                   grouping:true,
                   Search:true,
-                  exportCsv: (columnList, initialData) => {
-                    const columns = columnList.filter(columnDef => {
-                      return !columnDef.hidden && columnDef.field && columnDef.export !== false;
-                    })
-                    const data = initialData.map(rowData =>
-                      columns.map(columnDef => {
-                        return columnDef.render ? columnDef.render(rowData) : rowData[columnDef.field];
-                      })
-                    );
-                    const builder = new CsvBuilder('data' + '.csv');
-                    builder
-                      .setDelimeter(',')
-                      .setColumns(columns.map(columnDef => columnDef.title))
-                      .addRows(data)
-                      .exportFile();
-                  },
+                  // exportCsv: (columnList, initialData) => {
+                  //   const columns = columnList.filter(columnDef => {
+                  //     return !columnDef.hidden && columnDef.field && columnDef.export !== false;
+                  //   })
+                  //   const data = initialData.map(rowData =>
+                  //     columns.map(columnDef => {
+                  //       return columnDef.render ? columnDef.render(rowData) : rowData[columnDef.field];
+                  //     })
+                  //   );
+                  //   const builder = new CsvBuilder('data' + '.csv');
+                  //   builder
+                  //     .setDelimeter(',')
+                  //     .setColumns(columns.map(columnDef => columnDef.title))
+                  //     .addRows(data)
+                  //     .exportFile();
+                  // },
                   cellStyle: (value, rowData) => {
                     
                       if (value.substring(0,1) === "C") {
@@ -291,13 +325,17 @@ export default class CurrentSchedule extends Component {
     super(props);
     
     this.state = {
-      data: [ ]
+      data: [ ],
+      startDate: ''
     }
   }
 
   componentDidMount() {
     getResidents().then(residents => {
         this.setState({ data: residents })
+    })
+    getStartDate().then(date => {
+      this.setState({ startDate: date[0][0] });
     })
   }
 
@@ -306,93 +344,10 @@ export default class CurrentSchedule extends Component {
     return (
       
     <div className="App">
-        <Header>
-            <h1>Current Page </h1>
-        </Header>
-
+        <Header/>
+        <h3 className='Start-date'>Start Date: {getWeekDate(this.state.startDate, 1)}</h3>
         <ScrollableTabsButtonAuto/>
 
-        {/* <div style={{marginLeft:100, marginRight: 100}}>
-          <MaterialTable
-              title= ""
-              options={{
-                grouping: true
-              }}
-              icons={tableIcons}
-              columns={[
-                { title: 'BLOCK', field: 'block', defaultGroupOrder: 0, 
-                  cellStyle: { backgroundColor: '#FFF', color: '#28547A'},
-                  headerStyle: { backgroundColor: '#28547A', color: '#FFF'}},
-                { title: 'RESIDENT', field: 'name',
-                  cellStyle: { backgroundColor: '#FFF', color: '#28547A'},
-                  headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center"}},
-                { title: 'YEAR', field: 'year', 
-                  cellStyle: { backgroundColor: '#FFF', color: '#28547A', textAlign: "center"},
-                  headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center"}},
-                { title: 'Week 1', field: 'shift1', 
-                  headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center"}},
-                { title: 'Week 2', field: 'shift2',
-                  headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center"}},
-                { title: 'Week 3', field: 'shift3',
-                  headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center"}},
-                { title: 'Week 4', field: 'shift4',
-                  headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center"}},
-                { title: 'Week 5', field: 'shift5',
-                  headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center"}},
-                { title: 'Week 6', field: 'shift6',
-                  headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center"}},
-                { title: 'Week 7', field: 'shift7',
-                  headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center"}},
-                { title: 'Week 8', field: 'shift8',
-                  headerStyle: { backgroundColor: '#28547A', color: '#FFF', textAlign: "center"}},
-              ] 
-              }
-              data={this.state.data}
-              value={this.state.value}
-              options={{
-                pageSize: 15,
-                pageSizeOptions: [],
-                headerStyle: {
-                  backgroundColor: '#658CAE',
-                  color: '#FFF',
-                },
-                exportButton: true,
-                grouping:true,
-                Search:true,
-                exportCsv: (columnList, initialData) => {
-                  const columns = columnList.filter(columnDef => {
-                    return !columnDef.hidden && columnDef.field && columnDef.export !== false;
-                  })
-                  const data = initialData.map(rowData =>
-                    columns.map(columnDef => {
-                      return columnDef.render ? columnDef.render(rowData) : rowData[columnDef.field];
-                    })
-                  );
-                  const builder = new CsvBuilder('data' + '.csv');
-                  builder
-                    .setDelimeter(',')
-                    .setColumns(columns.map(columnDef => columnDef.title))
-                    .addRows(data)
-                    .exportFile();
-                },
-                cellStyle: (value, rowData) => {
-                  
-                    if (value.substring(0,1) === "C") {
-                      return {color: '#FF7260', textAlign: "center", fontSize: 17}
-                    } else if (value.substring(0,1) === "B") {
-                      return {color: '#5F9FFF', textAlign: "center", fontSize: 17}
-                    } else if (value.substring(0,1) === "D") {
-                      return {color: '#15A452', textAlign: "center", fontSize: 17}
-                    } else if (value.substring(0,1) === "F") {
-                      return {color: '#939000', textAlign: "center", fontSize: 17}
-                    } 
-                    return{}
-                  },
-
-              }}
-              
-          />
-        </div> */}
     </div>
     )
   }

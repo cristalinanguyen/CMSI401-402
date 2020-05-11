@@ -15,7 +15,7 @@ export default class Welcome extends Component {
                     <div className="Welcome-body">
                         <Link to="/residents" className="Welcome-card">
                                 <img src={residents} className="Welcome-img" alt="residents"></img>
-                                <p>VIEW ALL RESIDENTS</p>
+                                <p>VIEW RESIDENTS</p>
                         </Link>
                         <Link to="/current-schedule" className="Welcome-card">
                             <img src={view} className="Welcome-img" alt="view"></img>
