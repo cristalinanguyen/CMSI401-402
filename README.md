@@ -4,7 +4,7 @@
 
 
 ## Overview
-LAC+USC psychiatry residency program has 24 residents, 12 first year interns and  12 second year interns. They rotate through the four wards within the facility under Chief Resident Dr. Kelly Jones.
+LAC+USC psychiatry residency program has 24 residents, 12 first year interns and 12 second year interns. They rotate through the four wards within the facility under Chief Resident Dr. Kelly Jones.
 
 Dr. Jones is responsible for the creation of a call schedule every six months to assign each resident to a two month block that they will work. Within that two month block, there must be at least one first year intern and one second year intern assigned to each ward. Every week within the two months, each resident will work a different type of shift: day float, night float, long call, or short call. Of the two residents in the same ward, they cannot work the same shift during the same week. In the past, Dr. Jones has spent nearly 100 hours a year creating this schedule by hand in order to satisfy all the constraints of the facility.
 
