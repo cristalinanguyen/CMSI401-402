@@ -78,6 +78,4 @@ ________________________________________________________
 
 **Schedule Page**
 
-![image](https://user-images.githubusercontent.com/31746937/81740337-ad5c7180-9451-11ea-8740-c468bb0aed3f.png)
-
 ![image](https://user-images.githubusercontent.com/31746937/81740350-b3eae900-9451-11ea-8c74-497a3c4dc01e.png)
