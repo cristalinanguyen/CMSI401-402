@@ -18,19 +18,21 @@ The purpose of this system is to accelerate the scheduling process while ensurin
 
 1. `git clone` this repository
 
-2. `cd` into the repo, install Flask, and check that the Flask backend works
+2. `cd` into the repo and install Flask
 
 ```
 pip install mysql-connector-python flask flask_cors
 ```
 
+3. `cd` into the `server` folder on the command line and run `python3 FlaskDao.py`
+
+4. Check that the Flask backend is working
+
 The link below should return JSON data:
 
 http://127.0.0.1:5000/residents
 
-3. `cd` into the `server` folder on the command line and run `python3 FlaskDao.py`
-
-4. In another terminal window, `cd` into the `webclient` folder and run `npm start`
+5. In another terminal window, `cd` into the `webclient` folder and run `npm start`
 
 > **Note:** If you run into issues while running `npm start` make sure you have all of the dependencies installed
 
