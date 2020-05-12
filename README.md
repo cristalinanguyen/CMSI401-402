@@ -18,20 +18,23 @@ The purpose of this system is to accelerate the scheduling process while ensurin
 
 1. `git clone` this repository
 
-2. `cd` into the repo, then into the `webclient` folder and then the `src` folder on the command line and run `python3 FlaskDao.py`
+2. `cd` into the repo, install Flask, and check that the Flask backend works
 
 ```
 pip install mysql-connector-python flask flask_cors
 ```
-3. Check that the Flask backend works (this should return JSON data):
+
+The link below should return JSON data:
 
 http://127.0.0.1:5000/residents
+
+3. `cd` into the `server` folder on the command line and run `python3 FlaskDao.py`
 
 4. In another terminal window, `cd` into the `webclient` folder and run `npm start`
 
 > **Note:** If you run into issues while running `npm start` make sure you have all of the dependencies installed
 
-> These dependencies include `react-scripts`, `jquery`, `material-ui`, and `material-table`. To install these run `npm install react-scripts`, `npm install jquery`, etc. Some other dependecies may also need to be installed - if you need help please reach out to one of us!
+> These dependencies include `react-scripts`, `jquery`, `date-fns`, `material-ui`, and `material-table`. To install these run `npm install react-scripts`, `npm install jquery`, etc. Some other dependecies may also need to be installed - if you need help please reach out to one of us!
 
 ### Firebase
 
@@ -76,7 +79,3 @@ ________________________________________________________
 ![image](https://user-images.githubusercontent.com/31746937/81352227-e45e0c00-907a-11ea-95e7-12b686ef6dcf.png)
 
 ![image](https://user-images.githubusercontent.com/31746937/81352280-0061ad80-907b-11ea-99f3-de492ca67baa.png)
-
-The Schedule Page allows you to toggle between the block schedule and the full schedule. You can download either of these schedules as a `.csv` file by clicking the download icon in the top right corner of the tables. 
-
-> **Note:** The design of the full schedule is subject to change.
