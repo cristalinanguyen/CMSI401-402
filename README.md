@@ -82,3 +82,6 @@ ________________________________________________________
 
 ![image](https://user-images.githubusercontent.com/31746937/81740674-31165e00-9452-11ea-8555-1653b5e88f69.png)
 
+The Schedule Page has a toggle bar at the top where you can choose to see either the block schedule of the full schedule. The full schedule is grouped by block but can also be grouped by year or another header if Dr. Jones chooses she wants to see the schedule that way. The start date of the six month schedule is also displayed at the top of the page.
+
+Our algorithm gives second year residents priority with their week off which means that in some cases a first year might not get the week off they requested. If that is the case, a bullet point with `Week Off Not Granted` is displayed under the resident that did not get the week off they requested. In most cases, however, the bullet point under the resident's name will say `Week Off Granted`, because they were able to get the week off they requested.
