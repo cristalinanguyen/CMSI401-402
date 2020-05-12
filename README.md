@@ -76,6 +76,6 @@ ________________________________________________________
 
 **Schedule Page**
 
-![image](https://user-images.githubusercontent.com/31746937/81352227-e45e0c00-907a-11ea-95e7-12b686ef6dcf.png)
+![image](https://user-images.githubusercontent.com/31746937/81740337-ad5c7180-9451-11ea-8740-c468bb0aed3f.png)
 
-![image](https://user-images.githubusercontent.com/31746937/81352280-0061ad80-907b-11ea-99f3-de492ca67baa.png)
+![image](https://user-images.githubusercontent.com/31746937/81740350-b3eae900-9451-11ea-8c74-497a3c4dc01e.png)
