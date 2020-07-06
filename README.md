@@ -1,5 +1,5 @@
-# CMSI401-402
-## Scheduling System Senior Project
+# USchedule Scheduling System
+## CMSI401-402 at Loyola Marymount University
 ### Annie Flora, Amelia Jay, Liam Namba, Cristalina Nguyen, Sophia Prochnow, Christian Santander
 
 
